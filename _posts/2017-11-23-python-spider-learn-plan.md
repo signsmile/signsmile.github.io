@@ -6,7 +6,7 @@ tags : [write]
 ---
 {% include JB/setup %}
 
-#Python数据分析学习路径
+# Python数据分析学习路径
 
 ## 参考文章
 
