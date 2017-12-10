@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="chinese (simplified)">
+<head>
+        <meta charset="utf-8" />
+        <title>Markdown语法速查</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">招牌式的微笑 </a></h1>
+                <nav><ul>
+                    <li class="active"><a href="/category/blogs.html">Blogs</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/markdownyu-fa-su-cha.html" rel="bookmark"
+           title="Permalink to Markdown语法速查">Markdown语法速查</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-12-02T00:00:00+08:00">
+                Published: 周六 02 十二月 2017
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/signsmile.html">signsmile</a>
+        </address>
+<p>In <a href="/category/blogs.html">Blogs</a>.</p>
+
+</footer><!-- /.post-info -->      <blockquote>
+<p>word没法git管理，txt没法排版，Markdown正合适</p>
+<p>这里整理了一份Markdown语法速查，作为手边工具</p>
+</blockquote>
+<hr>
+<h1>区块元素</h1>
+<h2>段落和换行</h2>
+<h3>段落</h3>
+<div class="highlight"><pre><span></span>第一行
+中间有空行
+第二行
+</pre></div>
+
+
+<blockquote>
+<p>第一行</p>
+<p>第二行</p>
+</blockquote>
+<h3>换行</h3>
+<p>空格+空格+回车</p>
+<blockquote>
+<p>第一行<br>
+第二行</p>
+</blockquote>
+<h2>标题</h2>
+<p><em>Markdown 支持两种标题的语法</em></p>
+<h3>类Setext</h3>
+<div class="highlight"><pre><span></span>最高阶标题
+=
+第二阶标题
+-
+</pre></div>
+
+
+<blockquote>
+<h1>最高阶标题</h1>
+<h2>第二阶标题</h2>
+</blockquote>
+<h3>类atx形式</h3>
+<div class="highlight"><pre><span></span># H1
+## H2
+### H3
+#### H4
+##### H5
+###### H6
+</pre></div>
+
+
+<blockquote>
+<h1>H1</h1>
+<h2>H2</h2>
+<h3>H3</h3>
+<h4>H4</h4>
+<h5>H5</h5>
+<h6>H6</h6>
+</blockquote>
+<h2>区块</h2>
+<p><em>用 &gt;，可嵌套</em></p>
+<div class="highlight"><pre><span></span>&gt; 一级区块
+&gt;&gt; 二级区块
+&gt;&gt;&gt; 三级区块
+&gt;
+&gt; *区块内可以直接加其他语法*
+</pre></div>
+
+
+<blockquote>
+<p>一级区块</p>
+<blockquote>
+<p>二级区块</p>
+<blockquote>
+<p>三级区块</p>
+</blockquote>
+</blockquote>
+<p><em>区块内可以直接加其他语法</em></p>
+</blockquote>
+<h2>列表</h2>
+<h3>无序列表</h3>
+<p><em>前加 * 或 + 或 -</em></p>
+<div class="highlight"><pre><span></span>* 一
+* 二
+  &gt; 列表里面的区块需要缩进
+* 三
+</pre></div>
+
+
+<blockquote>
+<ul>
+<li>一</li>
+<li>二<blockquote>
+<p>列表里面的区块需要缩进</p>
+</blockquote>
+</li>
+<li>三</li>
+</ul>
+</blockquote>
+<h3>有序列表</h3>
+<p><em>前加数字接着一个英文句点，不用在意具体数值，Markdown会自动排序</em></p>
+<div class="highlight"><pre><span></span>1. 一
+2. 二
+3. 三
+</pre></div>
+
+
+<blockquote>
+<ol>
+<li>一</li>
+<li>二</li>
+<li>三</li>
+</ol>
+</blockquote>
+<h2>代码区块</h2>
+<div class="highlight"><pre><span></span>签名加4个空格或者一个制表符就是代码区块了
+</pre></div>
+
+
+<h2>分割线</h2>
+<p><em>三个以上的 * - _ 中中间允许空格</em></p>
+<div class="highlight"><pre><span></span>*** 或 --- 或 ___
+</pre></div>
+
+
+<hr>
+<h1>区段元素</h1>
+<h2>链接</h2>
+<div class="highlight"><pre><span></span>[行内式链接](http://blog.signsmile.com/ &quot;signsmile&quot;)
+可使用相对路径
+</pre></div>
+
+
+<p><a href="http://blog.signsmile.com/" title="signsmile">行内式链接</a></p>
+<p><em>链接辨别标签可以有字母、数字、空白和标点符号，但是并不区分大小写</em>    </p>
+<div class="highlight"><pre><span></span><span class="k">[参考式链接][signsmile]</span>
+<span class="na">[signsmile]: http://blog.signsmile.com/</span>
+
+<span class="na">另外[signsmile]:[]等效于[signsmile]:[signsmile]</span>
+</pre></div>
+
+
+<p><a href="http://blog.signsmile.com/" title="signsmile">参考式链接</a></p>
+<h2>强调</h2>
+<p><em>如需直接使用*或者-可以用\转义</em></p>
+<div class="highlight"><pre><span></span>*em标签*
+_em标签_
+**strong标签**
+__strong标签__
+</pre></div>
+
+
+<p><em>em标签</em></p>
+<p><em>em标签</em></p>
+<p><strong>strong标签</strong></p>
+<p><strong>strong标签</strong></p>
+<h2>代码</h2>
+<p><em>段落中的代码可用反引号 ` 括起来</em></p>
+<div class="highlight"><pre><span></span>调用 `helloworld()` 函数.
+</pre></div>
+
+
+<p>调用 <code>helloworld()</code> 函数.</p>
+<div class="highlight"><pre><span></span>里面有反引号 ``hello`world``.
+</pre></div>
+
+
+<p>里面有反引号 <code>hello`world</code>.</p>
+<h2>图片</h2>
+<div class="highlight"><pre><span></span><span class="o">!</span><span class="p">[</span><span class="n">Alt</span> <span class="n">text</span><span class="p">](</span><span class="nl">https</span><span class="p">:</span><span class="c1">//github.com/fluidicon.png &quot;内联式图片&quot;)</span>
+</pre></div>
+
+
+<p><img alt="Alt text" src="https://github.com/fluidicon.png" title="内联式图片"></p>
+<div class="highlight"><pre><span></span><span class="o">!</span><span class="p">[</span><span class="n">Alt</span> <span class="n">text</span><span class="p">][</span><span class="n">image_id</span><span class="p">]</span>
+<span class="p">[</span><span class="n">image_id</span><span class="p">]</span><span class="o">:</span> <span class="nl">https</span><span class="p">:</span><span class="c1">//github.com/fluidicon.png  &quot;参考式图片&quot;</span>
+</pre></div>
+
+
+<p><img alt="Alt text" src="https://github.com/fluidicon.png" title="参考式图片"></p>
+<h1>其他</h1>
+<h2>自动链接</h2>
+<div class="highlight"><pre><span></span><span class="nt">&lt;http:</span><span class="err">//example.com</span><span class="nt">/&gt;</span>
+Markdown 会转为：
+<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://example.com/&quot;</span><span class="nt">&gt;</span>http://example.com/<span class="nt">&lt;/a&gt;</span>
+</pre></div>
+
+
+<h2>反斜杠</h2>
+<p><em>Markdown 支持以下这些符号前面加上反斜杠来帮助插入普通的符号：</em></p>
+<div class="highlight"><pre><span></span>\   反斜线
+`   反引号
+*   星号
+_   底线
+{}  花括号
+[]  方括号
+()  括弧
+#   井字号
++   加号
+-   减号
+.   英文句点
+!   惊叹号
+</pre></div>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>
