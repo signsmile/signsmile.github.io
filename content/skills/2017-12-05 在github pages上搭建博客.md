@@ -1,6 +1,5 @@
 Title: 在github pages上搭建博客
-Category: Blogs
-Date: 2017-12-05
+Tags: github
 
 >在上传Pelican生成的静态网站的时候发现绑定的域名没法访问，
 上网一搜是因为缺少CNAME文件的配置，于是决定罗列下github上搭建博客的步骤，以备查询
@@ -19,7 +18,7 @@ Date: 2017-12-05
 >     git remote add origin > https://github.com/signsmile/signsmile.github.io.git
 >     git push -u origin master
 
-    这里需要事先设置好[ssh公钥私钥]({filename}/blogs/20171204 利用Putty生成SSH公钥私钥.md)，以便获得push的权限。当然也可以在每次push的时候输入账户密码
+    这里需要事先设置好[ssh公钥私钥]({filename}/skills/2017-12-04 利用Putty生成SSH公钥私钥.md)，以便获得push的权限。当然也可以在每次push的时候输入账户密码
 >     $ git push -u origin master
 >     Username for 'https://github.com': signsmile
 
