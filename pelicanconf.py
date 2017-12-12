@@ -42,4 +42,5 @@ RELATIVE_URLS = True
 STATIC_PATHS = ['images', 'extra/CNAME']
 EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'},}
 
+THEME = 'themes\waterspill-en'
 #TEMPLATE_PAGES = {'pages/jinja2_template.html': 'jinja2_template.html'}
