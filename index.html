@@ -1,37 +1,325 @@
-<!DOCTYPE html>
-<html lang="chinese (simplified)">
-<head>
-        <meta charset="utf-8" />
-        <title>招牌式的微笑</title>
-        <link rel="stylesheet" href="/theme/css/main.css" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 
-        <!--[if IE]>
-            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
+<head>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  
+  <title>招牌式的微笑</title>
+<link href="./theme/css/style.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="./" type="application/atom+xml" rel="alternate" title="招牌式的微笑 ATOM Feed" />
+  
+  <!--[if IE]>
+  <style type="text/css"> 
+  .twoColFixRtHdr #mainContent { zoom: 1; }
+  </style>
+  <![endif]-->
+
 </head>
 
-<body id="index" class="home">
-        <header id="banner" class="body">
-                <h1><a href="/">招牌式的微笑 </a></h1>
-                <nav><ul>
-                    <li><a href="/category/blogs.html">Blogs</a></li>
-                </ul></nav>
-        </header><!-- /#banner -->
+<body>
 
-            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href="/zai-github-pagesshang-da-jian-bo-ke.html">在github pages上搭建博客</a></h1>
-<footer class="post-info">
-        <abbr class="published" title="2017-12-05T00:00:00+08:00">
-                Published: 周二 05 十二月 2017
-        </abbr>
+<div id="container">
 
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/signsmile.html">signsmile</a>
-        </address>
-<p>In <a href="/category/blogs.html">Blogs</a>.</p>
+  <div id="header">
+  <h1><a href="./index.html">招牌式的微笑</h1>
+  
+  </div><!-- end #header -->
+  
+  <div id="topMenu">
+  
+    <ul>
+    	<li><a href="./index.html">Home</a></li>
+        <li>&ndash;</li>
+        <li><a href="./archives.html">Archives</a></li>
+        
+    </ul>
+  
+  </div><!-- end #topMenu -->
 
-</footer><!-- /.post-info --><blockquote>
+  <div id="sidebar">
+    <ul>
+	<li>
+	    <h3>Pages</h3>
+	    <ul>
+	    </ul>
+	</li>
+	<li>
+            <h3>Categories</h3>
+            <ul>
+		     <li ><a href="./category/blogs.html">Blogs</a></li>
+		     <li ><a href="./category/skills.html">Skills</a></li>
+	    </ul>
+	</li>
+	<li>
+		<h3>Blogroll</h3>
+		<ul>
+                    <li><a href="http://getpelican.com/">Pelican</a></li>
+                    <li><a href="http://python.org/">Python.org</a></li>
+                    <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+                    <li><a href="#">You can modify those links in your config file</a></li>
+		</ul>
+	</li>
+        <li>
+                <h3>Social</h3>
+                <ul>
+                    <li><a href="#">You can add links in your config file</a></li>
+                    <li><a href="#">Another social link</a></li>
+                </ul>
+        </li><!-- /.social -->
+        <li>
+            <h3>Tags</h3>
+            <ul>
+                    <li><a href="./tag/markdown.html">Markdown</a></li>
+                    <li><a href="./tag/pelican.html">Pelican</a></li>
+                    <li><a href="./tag/github.html">github</a></li>
+                    <li><a href="./tag/ssh.html">SSH</a></li>
+                    <li><a href="./tag/putty.html">Putty</a></li>
+            </ul>
+        </li>
+    </ul>
+  </div><!-- end #sidebar -->
+
+  <div id="mainContent">
+  	
+ 
+        
+  	
+    <div class="blogItem">
+    
+      <h2><a href="./pelicanpei-zhi.html">Pelican配置</a></h2>
+      <h3>周一 11 十二月 2017</h3>
+      
+      <p>详细的配置项参考官方文档<a href="http://docs.getpelican.com/en/3.7.1/settings.html">Pelican配置</a><br>
+这里贴下我自己的配置, 目前所做改动不多，主要是生成文章时候的一些配置，后续随着个性化配置增多，这个文章也会随时更新。
+另外，我特别喜欢waterspill-en这个主题，把它放到了工程目录下的themes上了。</p>
+<h3>pelicanconf.py</h3>
+<p><em>基础配置文件</em></p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: utf-8 -*- #</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">unicode_literals</span>
+
+<span class="n">AUTHOR</span> <span class="o">=</span> <span class="sa">u</span><span class="s1">&#39;signsmile&#39;</span>
+<span class="n">SITENAME</span> <span class="o">=</span> <span class="sa">u</span><span class="s1">&#39;</span><span class="se">\u62db\u724c\u5f0f\u7684\u5fae\u7b11</span><span class="s1">&#39;</span>
+<span class="n">SITEURL</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+
+<span class="n">PATH</span> <span class="o">=</span> <span class="s1">&#39;content&#39;</span>
+
+<span class="n">TIMEZONE</span> <span class="o">=</span> <span class="s1">&#39;Asia/Shanghai&#39;</span>
+
+<span class="n">DEFAULT_LANG</span> <span class="o">=</span> <span class="sa">u</span><span class="s1">&#39;Chinese (Simplified)&#39;</span>
+
+<span class="n">GITHUB_URL</span> <span class="o">=</span> <span class="s1">&#39;https://github.com/signsmile/&#39;</span>
+<span class="c1"># DISQUS_SITENAME = &quot;xxx&quot; disqus被墙了没法用，占个坑吧</span>
+
+<span class="c1"># Feed generation is usually not desired when developing</span>
+<span class="n">FEED_ALL_ATOM</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="n">CATEGORY_FEED_ATOM</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="n">TRANSLATION_FEED_ATOM</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="n">AUTHOR_FEED_ATOM</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="n">AUTHOR_FEED_RSS</span> <span class="o">=</span> <span class="bp">None</span>
+
+<span class="c1"># Blogroll</span>
+<span class="n">LINKS</span> <span class="o">=</span> <span class="p">((</span><span class="s1">&#39;Pelican&#39;</span><span class="p">,</span> <span class="s1">&#39;http://getpelican.com/&#39;</span><span class="p">),</span>
+         <span class="p">(</span><span class="s1">&#39;Python.org&#39;</span><span class="p">,</span> <span class="s1">&#39;http://python.org/&#39;</span><span class="p">),</span>
+         <span class="p">(</span><span class="s1">&#39;Jinja2&#39;</span><span class="p">,</span> <span class="s1">&#39;http://jinja.pocoo.org/&#39;</span><span class="p">),</span>
+         <span class="p">(</span><span class="s1">&#39;You can modify those links in your config file&#39;</span><span class="p">,</span> <span class="s1">&#39;#&#39;</span><span class="p">),)</span>
+
+<span class="c1"># Social widget</span>
+<span class="n">SOCIAL</span> <span class="o">=</span> <span class="p">((</span><span class="s1">&#39;You can add links in your config file&#39;</span><span class="p">,</span> <span class="s1">&#39;#&#39;</span><span class="p">),</span>
+          <span class="p">(</span><span class="s1">&#39;Another social link&#39;</span><span class="p">,</span> <span class="s1">&#39;#&#39;</span><span class="p">),)</span>
+
+<span class="n">DEFAULT_PAGINATION</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">DEFAULT_DATE</span> <span class="o">=</span> <span class="s1">&#39;fs&#39;</span>
+<span class="n">FILENAME_METADATA</span> <span class="o">=</span> <span class="s1">&#39;(?P&lt;date&gt;\d{4}-\d{2}-\d{2})&#39;</span>
+
+<span class="c1"># Uncomment following line if you want document-relative URLs when developing</span>
+<span class="n">RELATIVE_URLS</span> <span class="o">=</span> <span class="bp">True</span>
+
+<span class="n">STATIC_PATHS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;images&#39;</span><span class="p">,</span> <span class="s1">&#39;extra/CNAME&#39;</span><span class="p">]</span>
+<span class="n">EXTRA_PATH_METADATA</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;extra/CNAME&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;path&#39;</span><span class="p">:</span> <span class="s1">&#39;CNAME&#39;</span><span class="p">},}</span>
+
+<span class="n">THEME</span> <span class="o">=</span> <span class="s1">&#39;themes\waterspill-en&#39;</span>
+<span class="c1">#TEMPLATE_PAGES = {&#39;pages/jinja2_template.html&#39;: &#39;jinja2_template.html&#39;}</span>
+</pre></div>
+</td></tr></table>
+
+<h3>publishconf.py</h3>
+<p><em>发布要用的配置文件，会继承pelicanconf.py的所有内容</em></p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: utf-8 -*- #</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">unicode_literals</span>
+
+<span class="c1"># This file is only used if you use `make publish` or</span>
+<span class="c1"># explicitly specify it as your config file.</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">curdir</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">pelicanconf</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">SITEURL</span> <span class="o">=</span> <span class="s1">&#39;https://blog.signsmile.com&#39;</span>
+<span class="n">RELATIVE_URLS</span> <span class="o">=</span> <span class="bp">False</span>
+
+<span class="n">FEED_ALL_ATOM</span> <span class="o">=</span> <span class="s1">&#39;feeds/all.atom.xml&#39;</span>
+<span class="n">CATEGORY_FEED_ATOM</span> <span class="o">=</span> <span class="s1">&#39;feeds/</span><span class="si">%s</span><span class="s1">.atom.xml&#39;</span>
+
+<span class="n">DELETE_OUTPUT_DIRECTORY</span> <span class="o">=</span> <span class="bp">True</span>
+
+<span class="c1"># Following items are often useful when publishing</span>
+
+<span class="c1">#DISQUS_SITENAME = &quot;&quot;</span>
+<span class="c1">#GOOGLE_ANALYTICS = &quot;&quot;</span>
+</pre></div>
+</td></tr></table>	
+
+      
+      <h3 class="blogMeta">By <a href="#">signsmile</a>, Category: <a href="./category/skills.html">Skills</a></h3>
+<h3 class="blogMeta">Tags: <span><a href="./tag/pelican.html">Pelican</a> / </span>
+</h3>    
+    </div><!-- end #blogItem -->
+	
+        <div class="blogItem">
+                <h2>Other articles</h2>
+        </div>
+        
+    
+    <div class="blogItem">
+    
+      <h2><a href="./pelicanzi-dong-fa-bu-dao-github.html">Pelican自动发布到github</a></h2>
+      <h3>周六 09 十二月 2017</h3>
+      
+      <blockquote>
+<p>今天说下用Pelican写作过程中的自动发布流程，主要用到了<a href="http://www.fabfile.org/">Fabric</a>
+以及<a href="https://github.com/davisp/ghp-import">ghp-import</a>这两个工具</p>
+</blockquote>
+<h1>简介</h1>
+<p><strong><a href="http://www.fabfile.org/">Fabric</a></strong> 是一个命令行工具，能够简化SSH的使用，主要用于应用的部署和系统管理任务。它能通过fab命令执行fabfile.py文件中自行定制的任务函数，任务函数中可以使用run函数通过SSH执行远端主机命令，local函数用于执行本地命令。<br>
+<strong><a href="https://github.com/davisp/ghp-import">ghp-import</a></strong> 是专门用来将你的静态网站导入到github pages的工具。由于静态网站需要部署在github和根目录下，这样会导致Pelican工程文件和生成的静态网站文件没法在同一个github仓库中维护。而ghp-import能方便的建立并维护一个独立的分支（master或者gh-pages）专门用来维护静态网站（output目录），而用户可以手动的在另外的分支维护Pelican工程文件。</p>
+<h1>安装</h1>
+<p><strong>Fabric</strong></p>
+<ul>
+<li><code>$ pip install fabric</code></li>
+</ul>
+<p><strong>ghp-import</strong></p>
+<ul>
+<li>linux下 <code>pip install ghp-import</code></li>
+<li>Windows下 <code>pip install https://github.com/chevah/ghp-import/archive/win-support.zip</code></li>
+</ul>
+<h1>配置</h1>
+<p><code>pelican-quickstart</code>过程会自动在工程的根目录下生成一个fabfile.py …</p>	
+<h3 class="blogMeta">By <a href="#">signsmile</a>, Category: <a href="./category/skills.html">Skills</a></h3>
+	<a href="./pelicanzi-dong-fa-bu-dao-github.html">Continue reading …</a>
+      
+      
+	
+    
+    </div><!-- end #blogItem -->
+        
+    
+    <div class="blogItem">
+    
+      <h2><a href="./pelicanxie-zuo-zi-shi.html">Pelican写作姿势</a></h2>
+      <h3>周三 06 十二月 2017</h3>
+      
+      <p>熟悉你的工具，才能用好它，
+所以接下来几天我都会深入研究一下Pelican这个工具在实际场合上的应用。
+因为我这边是用Markdown进行写作的，下面涉及的内容都是关于Markdown的。
+详细的内容可以参考官方手册<a href="http://docs.getpelican.com/en/3.7.1/content.html">Writing content</a>，
+这里仅对我所感兴趣的部分进行罗列</p>
+<h2>文章和页面</h2>
+<p>首先，所有产生的文档都放在content下面，用于生成相应的静态页面。
+文档分两种，Articles和Pages。Pages与Articles的唯一区别就是Pages放在<code>content/pages</code>目录下面，
+而其他任何地方放的文档都是Articles。一般Articles用来写文章、博客等，而Pages用来写不经常变动的比如个人简介、联系方式等。
+DISPLAY_PAGES_ON_MENU用来配置是否将Pages显示为导航菜单，而status: hidden进行单个Page设置</p>
+<h2>文件元数据</h2>
+<p>Markdown的文档信息格式如下</p>
+<div class="highlight"><pre><span></span><span class="n">Title</span><span class="o">:</span> <span class="n">My</span> <span class="kd">super</span> <span class="n">title</span>  <span class="c1">//标题，唯一一个必须的，其他都可选</span>
+<span class="n">Date</span><span class="o">:</span> <span class="mi">2010</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">03</span> <span class="mi">10</span><span class="o">:</span><span class="mi">20</span>  <span class="c1">//创建时间，如未指定且DEFAULT_DATE被设置为fs，文件的“mtime”时间戳将会被使用</span>
+<span class="n">Modified</span><span class="o">:</span> <span class="mi">2010</span><span class="o">-</span><span class="mi">12 …</span></pre></div>	
+<h3 class="blogMeta">By <a href="#">signsmile</a>, Category: <a href="./category/skills.html">Skills</a></h3>
+	<a href="./pelicanxie-zuo-zi-shi.html">Continue reading …</a>
+      
+      
+	
+    
+    </div><!-- end #blogItem -->
+        
+    
+    <div class="blogItem">
+    
+      <h2><a href="./zai-github-pagesshang-da-jian-bo-ke.html">在github pages上搭建博客</a></h2>
+      <h3>周二 05 十二月 2017</h3>
+      
+      <blockquote>
 <p>在上传Pelican生成的静态网站的时候发现绑定的域名没法访问，
 上网一搜是因为缺少CNAME文件的配置，于是决定罗列下github上搭建博客的步骤，以备查询</p>
 </blockquote>
@@ -42,7 +330,7 @@
 <li>
 <p>注册账号后<a href="https://github.com/new">新建一个仓库(repository)</a><br>
 这里需要特别留意的是仓库的名字必须以<code>{username}.github.io</code>命名，<code>{username}</code>用自己github的账户名替换<br>
-<img alt="新建仓库" src="/images/new_github_pages_repository.png">  </p>
+<img alt="新建仓库" src="./images/new_github_pages_repository.png">  </p>
 </li>
 <li>
 <p>github上的仓库创建好以后同时也需要在本地创建个仓库以便维护，github会提供操作方法，命令行上照做即可。</p>
@@ -52,117 +340,60 @@ git init
 git add README.md
 git commit -m &quot;first commit&quot;
 git remote add origin &gt; https://github.com/signsmile/signsmile.github.io.git
-git push -u origin master
-</pre></div>
-
-
-</blockquote>
-<p>这里需要事先设置好<a href="/li-yong-puttysheng-cheng-sshgong-yao-si-yao.html">ssh公钥私钥</a>，以便获得push的权限。当然也可以在每次push的时候输入账户密码</p>
-<blockquote>
-<div class="highlight"><pre><span></span>$ git push -u origin master
-Username <span class="k">for</span> <span class="s1">&#39;https://github.com&#39;</span>: signsmile
-</pre></div>
-
-
-</blockquote>
-<p><img alt="登录" src="/images/github_login.png"></p>
-</li>
-<li>
-<p>有了仓库以后就可以把整个静态网站放到仓库中去了，比如用Pelican生成的output目录就可以直接上传上去，在这里作为例子，新建一个index.html文件</p>
-<blockquote>
-<div class="highlight"><pre><span></span><span class="nt">&lt;html&gt;</span>
-    <span class="nt">&lt;head&gt;</span>
-        <span class="nt">&lt;title&gt;</span>github pages test<span class="nt">&lt;/title&gt;</span>
-    <span class="nt">&lt;/head&gt;</span>
-    <span class="nt">&lt;body&gt;</span>
-        <span class="nt">&lt;h1&gt;</span>Hello World!<span class="nt">&lt;/h1&gt;</span>
-        this is the test index.html file for github pages
-    <span class="nt">&lt;/body&gt;</span>
-<span class="nt">&lt;/html&gt;</span>
-</pre></div>
-
-
-</blockquote>
-<p>把index.html文件放在本地仓库，然后<code>git push</code>上传到github，这样github pages就可以访问了<br>
-访问地址为<a href="https://signsmile.github.io">{username}.github.io</a><br>
-<img alt="页面效果" src="/images/github_pages_helloworld.png"></p>
-</li>
-<li>
-<p>如果手头有个域名，可以将自己的域名指向github pages, 配置如下<br>
-<img alt="域名设置" src="/images/github_pages_domain_name_setting.png"><br>
-    同时github仓库的根目录下需要放一个<code>CNAME</code>文件，文件内填入将设置的域名，比如<code>blog.signsmile.com</code></p>
-</li>
-</ol>
-<p>至此，github pages上的blog已经搭建完成了，后续只需将更新的静态网站放到仓库目录下面然后<code>push</code>就行</p>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/li-yong-puttysheng-cheng-sshgong-yao-si-yao.html" rel="bookmark"
-                           title="Permalink to 利用Putty生成SSH公钥私钥">利用Putty生成SSH公钥私钥</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2017-12-04T00:00:00+08:00">
-                Published: 周一 04 十二月 2017
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/signsmile.html">signsmile</a>
-        </address>
-<p>In <a href="/category/blogs.html">Blogs</a>.</p>
-
-</footer><!-- /.post-info -->                <p>装完git，居然没有ssh-keygen命令。无奈只好求助于putty，下载<a href="https://the.earth.li/~sgtatham/putty/latest/w64/putty.zip">putty</a>整个免安装的压缩包，里面有个PUTTYGEN.EXE工具可用于生成SSH的公钥和私钥</p>
-<p><img alt="PUTTYGEN目录" src="/images/PuTTY_Key_Generator_1.png"></p>
+git …</pre></div></blockquote></li></ol>	
+<h3 class="blogMeta">By <a href="#">signsmile</a>, Category: <a href="./category/skills.html">Skills</a></h3>
+	<a href="./zai-github-pagesshang-da-jian-bo-ke.html">Continue reading …</a>
+      
+      
+	
+    
+    </div><!-- end #blogItem -->
+        
+    
+    <div class="blogItem">
+    
+      <h2><a href="./li-yong-puttysheng-cheng-sshgong-yao-si-yao.html">利用Putty生成SSH公钥私钥</a></h2>
+      <h3>周一 04 十二月 2017</h3>
+      
+      <p>装完git，居然没有ssh-keygen命令。无奈只好求助于putty，下载<a href="https://the.earth.li/~sgtatham/putty/latest/w64/putty.zip">putty</a>整个免安装的压缩包，里面有个PUTTYGEN.EXE工具可用于生成SSH的公钥和私钥</p>
+<p><img alt="PUTTYGEN目录" src="./images/PuTTY_Key_Generator_1.png"></p>
 <ol>
 <li>
 <p>打开以后点击Generate<br>
-<img alt="点击Generate" src="/images/PuTTY_Key_Generator_2.png"></p>
+<img alt="点击Generate" src="./images/PuTTY_Key_Generator_2.png"></p>
 </li>
 <li>
 <p>鼠标在空白区域内划啊划，直到进度条满了（puttygen会采集鼠标划过的位置生成随机数）<br>
-<img alt="生成SSH" src="/images/PuTTY_Key_Generator_3.png"></p>
+<img alt="生成SSH" src="./images/PuTTY_Key_Generator_3.png"></p>
 </li>
 <li>
 <p>ssh公钥私钥已经生成，可使用Save public key 和 Save private key按钮保存ppk格式的公钥和私钥文件<br>
-<img alt="保存SSH" src="/images/PuTTY_Key_Generator_4.png"></p>
+<img alt="保存SSH" src="./images/PuTTY_Key_Generator_4.png"></p>
 </li>
 <li>
 <p>如果要产生OpenSSH格式的私钥，只需点击Conversions菜单下面的Export OpenSSH key即可。而对应OpenSSH格式的公钥在窗口界面直接复制即可<br>
-<img alt="导出OpenSSH" src="/images/PuTTY_Key_Generator_5.png"></p>
+<img alt="导出OpenSSH" src="./images/PuTTY_Key_Generator_5.png"></p>
 </li>
 <li>
 <p>将公钥上传到github文章，将ssh文件重命名为id_rsa的私钥放到C:\Users\username.ssh目录下即可</p>
 </li>
 </ol>
-<p><strong>Tip:windows下直接创建以.开头的文件或者目录会报错，在后面再跟一个.就可以了。比如 <code>.ssh.</code></strong></p>
-                <a class="readmore" href="/li-yong-puttysheng-cheng-sshgong-yao-si-yao.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/pelicanru-men.html" rel="bookmark"
-                           title="Permalink to Pelican入门">Pelican入门</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2017-12-03T00:00:00+08:00">
-                Published: 周日 03 十二月 2017
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/signsmile.html">signsmile</a>
-        </address>
-<p>In <a href="/category/blogs.html">Blogs</a>.</p>
-
-</footer><!-- /.post-info -->                <p>在github搭建博客，刚开始用<a href="https://jekyllrb.com/">Jekyll</a>，然后发现里面的Markdown排版很奇葩，网上说要换Markdown解析器，不想折腾（有时候懒是一种美德）。继而研究<a href="https://hexo.io/">Hexo</a>，环境还没装好呢，让我看到了<a href="http://docs.getpelican.com/en/stable/">Pelican</a>......</p>
+<p><strong>Tip:windows下直接创建以.开头的文件或者目录会报错，在后面再跟一个.就可以了。比如 <code>.ssh.</code></strong></p>	
+<h3 class="blogMeta">By <a href="#">signsmile</a>, Category: <a href="./category/skills.html">Skills</a></h3>
+	<a href="./li-yong-puttysheng-cheng-sshgong-yao-si-yao.html">Continue reading …</a>
+      
+      
+	
+    
+    </div><!-- end #blogItem -->
+        
+    
+    <div class="blogItem">
+    
+      <h2><a href="./pelicanru-men.html">Pelican入门</a></h2>
+      <h3>周日 03 十二月 2017</h3>
+      
+      <p>在github搭建博客，刚开始用<a href="https://jekyllrb.com/">Jekyll</a>，然后发现里面的Markdown排版很奇葩，网上说要换Markdown解析器，不想折腾（有时候懒是一种美德）。继而研究<a href="https://hexo.io/">Hexo</a>，环境还没装好呢，让我看到了<a href="http://docs.getpelican.com/en/stable/">Pelican</a>......</p>
 <p>我这不刚好有python环境吗？于是乎......</p>
 <p>首先你要有python环境，然后就很简单了...</p>
 <p>安装Pelican以及Markdown库</p>
@@ -180,29 +411,22 @@ cd ~/projects/yoursite
 <div class="highlight"><pre><span></span>C:\Users\xxx\Blog_Pelican&gt;pelican-quickstart
 Welcome to pelican-quickstart v3.7.1.
 
-This script will help you …</pre></div>
-                <a class="readmore" href="/pelicanru-men.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/markdownyu-fa-su-cha.html" rel="bookmark"
-                           title="Permalink to Markdown语法速查">Markdown语法速查</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2017-12-02T00:00:00+08:00">
-                Published: 周六 02 十二月 2017
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/signsmile.html">signsmile</a>
-        </address>
-<p>In <a href="/category/blogs.html">Blogs</a>.</p>
-
-</footer><!-- /.post-info -->                <blockquote>
+This script will help you …</pre></div>	
+<h3 class="blogMeta">By <a href="#">signsmile</a>, Category: <a href="./category/skills.html">Skills</a></h3>
+	<a href="./pelicanru-men.html">Continue reading …</a>
+      
+      
+	
+    
+    </div><!-- end #blogItem -->
+        
+    
+    <div class="blogItem">
+    
+      <h2><a href="./markdownyu-fa-su-cha.html">Markdown语法速查</a></h2>
+      <h3>周六 02 十二月 2017</h3>
+      
+      <blockquote>
 <p>word没法git管理，txt没法排版，Markdown正合适</p>
 <p>这里整理了一份Markdown语法速查，作为手边工具</p>
 </blockquote>
@@ -273,61 +497,40 @@ This script will help you …</pre></div>
 <blockquote>
 <p>二级区块</p>
 <blockquote>
-<p>三级区块 …</p></blockquote></blockquote></blockquote>
-                <a class="readmore" href="/markdownyu-fa-su-cha.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
+<p>三级区块 …</p></blockquote></blockquote></blockquote>	
+<h3 class="blogMeta">By <a href="#">signsmile</a>, Category: <a href="./category/skills.html">Skills</a></h3>
+	<a href="./markdownyu-fa-su-cha.html">Continue reading …</a>
+      
+      
+	
+    
+    </div><!-- end #blogItem -->
+        
+    
+    <div class="blogItem">
+    
+      <h2><a href="./di-yi-pian-wen-zhang.html">第一篇文章</a></h2>
+      <h3>周五 01 十二月 2017</h3>
+      
+      <p>这是我用Pelican搭建的第一篇文章</p>	
+<h3 class="blogMeta">By <a href="#">signsmile</a>, Category: <a href="./category/blogs.html">Blogs</a></h3>
+	<a href="./di-yi-pian-wen-zhang.html">Continue reading …</a>
+      
+      
+	
+    
+    </div><!-- end #blogItem -->
+  
+  </div><!-- end #mainContent -->
 
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/di-yi-pian-wen-zhang.html" rel="bookmark"
-                           title="Permalink to 第一篇文章">第一篇文章</a></h1>
-                </header>
+<div class="clearfloat"></div>
 
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2017-12-01T00:00:00+08:00">
-                Published: 周五 01 十二月 2017
-        </abbr>
+  <div id="footer">
+  
+    <p><a href="http://css4free.com/" title="free CSS web site designs">Free CSS Gallery</a></p>
+    <p>Proudly powered by <a href="http://getpelican.com">pelican</a>, which takes great advantages of <a href="http://python.org">python</a>.
+  </div><!-- end #footer -->
 
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/signsmile.html">signsmile</a>
-        </address>
-<p>In <a href="/category/blogs.html">Blogs</a>.</p>
-
-</footer><!-- /.post-info -->                <p>这是我用Pelican搭建的第一篇文章</p>
-                <a class="readmore" href="/di-yi-pian-wen-zhang.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-                </ol><!-- /#posts-list -->
-                </section><!-- /#content -->
-        <section id="extras" class="body">
-                <div class="blogroll">
-                        <h2>links</h2>
-                        <ul>
-                            <li><a href="http://getpelican.com/">Pelican</a></li>
-                            <li><a href="http://python.org/">Python.org</a></li>
-                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
-                            <li><a href="#">You can modify those links in your config file</a></li>
-                        </ul>
-                </div><!-- /.blogroll -->
-                <div class="social">
-                        <h2>social</h2>
-                        <ul>
-
-                            <li><a href="#">You can add links in your config file</a></li>
-                            <li><a href="#">Another social link</a></li>
-                        </ul>
-                </div><!-- /.social -->
-        </section><!-- /#extras -->
-
-        <footer id="contentinfo" class="body">
-                <address id="about" class="vcard body">
-                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
-                </address><!-- /#about -->
-
-                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
-        </footer><!-- /#contentinfo -->
-
+</div><!-- end #container -->
 </body>
 </html>

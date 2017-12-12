@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  
+  <title>Pelican自动发布到github</title>
+<link href="./theme/css/style.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="./" type="application/atom+xml" rel="alternate" title="招牌式的微笑 ATOM Feed" />
+  
+  <!--[if IE]>
+  <style type="text/css"> 
+  .twoColFixRtHdr #mainContent { zoom: 1; }
+  </style>
+  <![endif]-->
+
+</head>
+
+<body>
+
+<div id="container">
+
+  <div id="header">
+  <h1><a href="./index.html">招牌式的微笑</h1>
+  
+  </div><!-- end #header -->
+  
+  <div id="topMenu">
+  
+    <ul>
+    	<li><a href="./index.html">Home</a></li>
+        <li>&ndash;</li>
+        <li><a href="./archives.html">Archives</a></li>
+        
+    </ul>
+  
+  </div><!-- end #topMenu -->
+
+  <div id="sidebar">
+    <ul>
+	<li>
+	    <h3>Pages</h3>
+	    <ul>
+	    </ul>
+	</li>
+	<li>
+            <h3>Categories</h3>
+            <ul>
+		     <li ><a href="./category/blogs.html">Blogs</a></li>
+		     <li class="active"><a href="./category/skills.html">Skills</a></li>
+	    </ul>
+	</li>
+	<li>
+		<h3>Blogroll</h3>
+		<ul>
+                    <li><a href="http://getpelican.com/">Pelican</a></li>
+                    <li><a href="http://python.org/">Python.org</a></li>
+                    <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+                    <li><a href="#">You can modify those links in your config file</a></li>
+		</ul>
+	</li>
+        <li>
+                <h3>Social</h3>
+                <ul>
+                    <li><a href="#">You can add links in your config file</a></li>
+                    <li><a href="#">Another social link</a></li>
+                </ul>
+        </li><!-- /.social -->
+        <li>
+            <h3>Tags</h3>
+            <ul>
+                    <li><a href="./tag/markdown.html">Markdown</a></li>
+                    <li><a href="./tag/pelican.html">Pelican</a></li>
+                    <li><a href="./tag/github.html">github</a></li>
+                    <li><a href="./tag/ssh.html">SSH</a></li>
+                    <li><a href="./tag/putty.html">Putty</a></li>
+            </ul>
+        </li>
+    </ul>
+  </div><!-- end #sidebar -->
+
+  <div id="mainContent">
+  	
+ 
+
+
+<div class="blogItem">
+    
+      <h2><a href="./pelicanzi-dong-fa-bu-dao-github.html">Pelican自动发布到github</a></h2>
+      <h3>周六 09 十二月 2017</h3>
+      
+  <blockquote>
+<p>今天说下用Pelican写作过程中的自动发布流程，主要用到了<a href="http://www.fabfile.org/">Fabric</a>
+以及<a href="https://github.com/davisp/ghp-import">ghp-import</a>这两个工具</p>
+</blockquote>
+<h1>简介</h1>
+<p><strong><a href="http://www.fabfile.org/">Fabric</a></strong> 是一个命令行工具，能够简化SSH的使用，主要用于应用的部署和系统管理任务。它能通过fab命令执行fabfile.py文件中自行定制的任务函数，任务函数中可以使用run函数通过SSH执行远端主机命令，local函数用于执行本地命令。<br>
+<strong><a href="https://github.com/davisp/ghp-import">ghp-import</a></strong> 是专门用来将你的静态网站导入到github pages的工具。由于静态网站需要部署在github和根目录下，这样会导致Pelican工程文件和生成的静态网站文件没法在同一个github仓库中维护。而ghp-import能方便的建立并维护一个独立的分支（master或者gh-pages）专门用来维护静态网站（output目录），而用户可以手动的在另外的分支维护Pelican工程文件。</p>
+<h1>安装</h1>
+<p><strong>Fabric</strong></p>
+<ul>
+<li><code>$ pip install fabric</code></li>
+</ul>
+<p><strong>ghp-import</strong></p>
+<ul>
+<li>linux下 <code>pip install ghp-import</code></li>
+<li>Windows下 <code>pip install https://github.com/chevah/ghp-import/archive/win-support.zip</code></li>
+</ul>
+<h1>配置</h1>
+<p><code>pelican-quickstart</code>过程会自动在工程的根目录下生成一个fabfile.py，里面包括所有的配置和可以执行的命令。
+对于github pages需重点关注的是<code>env.github_pages_branch</code>，因为如果是project网站的话需要用到gh-pages分支，而对于user网站需要用到master分支（这时候Pelican工程的分支就不能用master了，可自行新建一个其他分支用来维护。<em>更高阶的玩法是本地Pelican工程还是master分支，静态网站还是gh-pages，然后修改gh_pages函数在上传时本地gh-pages分支-&gt;远程master分支，而本地master分支-&gt;远程其他分支</em>）<br>
+其他保持默认即可，当然也可以定制更多的函数扩展fabfile.py用来简化你更多的工作。</p>
+<h1>使用</h1>
+<p><code>fab clean</code>清空output目录<br>
+<code>fab build</code>生成静态网站<br>
+<code>fab regenerate</code>将改动的部分从新生成页面<br>
+<code>fab serve</code>本地启动服务用来查看生成的网站<br>
+<code>fab reserve</code>生成静态网站并启动服务<br>
+<code>fab gh_pages</code>生成静态网站并更新到github上的github_pages_branch分支中<em>这里默认还是用pelicanconf.py配置生成静态网站，建议修改fabfile.py文件换成publishconf.py生成</em></p>
+<p>所以以后就很简单啦，写完文章之后用<code>fab reserve</code>命令查看一下，没问题的话用<code>fab gh_pages</code>上传。
+需要的话在gh_pages里面再增加Pelican工程文件分支的上传，那就完美了。或者在<code>.git/hooks/post-commit</code>中配置下让Pelican工程提交的时候自动上传（添加<code>pelican content -o output -s pelicanconf.py &amp;&amp; ghp-import output &amp;&amp; git push origin gh-pages</code>即可）</p>
+<h1>原理</h1>
+<p>gh-imports这个工具挺有意思，好奇它是怎么自动维护一个独立分支的，所以特意查看了一下它的源码。<br>
+基本原理很简单，通过subprocess建立子进程，执行<a href="https://www.git-scm.com/docs/git-fast-import"><code>git fast-import</code></a>命令，将output内的文件倒入到目标分支上去。再执行<code>git push</code>命令上传就完事了。</p>	
+      
+      <h3 class="blogMeta">By <a href="#">signsmile</a>, Category: <a href="./category/skills.html">Skills</a></h3>
+<h3 class="blogMeta">Tags: <span><a href="./tag/pelican.html">pelican</a> / </span>
+</h3>    
+    </div><!-- end #blogItem -->
+				
+				<!-- end #content -->
+  
+  </div><!-- end #mainContent -->
+
+<div class="clearfloat"></div>
+
+  <div id="footer">
+  
+    <p><a href="http://css4free.com/" title="free CSS web site designs">Free CSS Gallery</a></p>
+    <p>Proudly powered by <a href="http://getpelican.com">pelican</a>, which takes great advantages of <a href="http://python.org">python</a>.
+  </div><!-- end #footer -->
+
+</div><!-- end #container -->
+</body>
+</html>
