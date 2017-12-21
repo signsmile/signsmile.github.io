@@ -1,6 +1,12 @@
 Title: Atom飞行手册的飞行手册
 Status: draft
-打开命令面板 `cmd-shift-p`
+
+> 通读了一遍[Atom飞行手册](http://flight-manual.atom.io/)的第一章快速入门以及第二章使用Atom，做了简单笔记，方便以后查阅。
+
+### 命令面板
+Atom的操作方式是以命令为基础的，不管是菜单功能还是内置的一些快捷键本质上都是执行Atom命令。而命令面板可以直接去执行Atom具备的所有命令，包括但不限于菜单栏上的功能以及快捷键的功能。打开命令面板的方式为快捷键 `cmd-shift-p`，在命令面板上带搜索功能的框中可以输入键字即可搜索到相应命令，点击鼠标左键或者按下回车就可以执行命令。  
+如下图就是打开atom设置界面的命令:
+![](../content/images/2017/12/Atom命令面板.png)
 
 打开设置界面 `settings-view:open` or `cmd-,`  
 设置界面可以修改主题，个人喜欢UI Theme:OneLight 以及Syntax Theme:Solarized Right
