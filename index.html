@@ -48,7 +48,7 @@
             <h3>Categories</h3>
             <ul>
 		     <li ><a href="./category/blogs.html">Blogs</a></li>
-		     <li ><a href="./category/skills.html">Skills</a></li>
+		     <li ><a href="./category/skills.html">skills</a></li>
 	    </ul>
 	</li>
 	<li>
@@ -70,11 +70,12 @@
         <li>
             <h3>Tags</h3>
             <ul>
-                    <li><a href="./tag/markdown.html">Markdown</a></li>
                     <li><a href="./tag/pelican.html">Pelican</a></li>
                     <li><a href="./tag/github.html">github</a></li>
+                    <li><a href="./tag/markdown.html">Markdown</a></li>
                     <li><a href="./tag/ssh.html">SSH</a></li>
                     <li><a href="./tag/putty.html">Putty</a></li>
+                    <li><a href="./tag/atom.html">Atom</a></li>
             </ul>
         </li>
     </ul>
@@ -87,8 +88,422 @@
   	
     <div class="blogItem">
     
+      <h2><a href="./atomfei-xing-shou-ce-de-fei-xing-shou-ce.html">Atom飞行手册的飞行手册</a></h2>
+      <h3>Mon 25 December 2017</h3>
+      
+      <blockquote>
+<p>通读了一遍<a href="http://flight-manual.atom.io/">Atom飞行手册</a>的第一章快速入门以及第二章使用Atom，做了简单笔记，方便以后查阅。</p>
+</blockquote>
+<h3>命令面板</h3>
+<p>Atom的操作方式是以命令为基础的，不管是菜单功能还是内置的一些快捷键本质上都是执行Atom命令。而命令面板可以直接去执行Atom具备的所有命令，包括但不限于菜单栏上的功能以及快捷键的功能。打开命令面板的方式为快捷键 <code>cmd-shift-p</code>，在命令面板上带搜索功能的框中可以输入键字即可搜索到相应命令，点击鼠标左键或者按下回车就可以执行命令。<br>
+如下图就是打开atom设置界面的命令:
+<img alt="" src="../images/2017/12/Atom_Command_Panel.png">
+当然也可以根据右侧的提示用快捷键<code>Ctrl+,</code>来打开</p>
+<h3>设置界面</h3>
+<p>既然已经打开了设置界面，那就简单说说设置界面中一些有意思的</p>
+<h5>Core Settings</h5>
+<p><em>核心设置，保持默认就行</em><br>
+- Allow pending Pane Items //这个功能很有意思，它能让你在单击一个文件的时候不完全打开它，只是生成一个预览界面，会自动被后面打开的文件给替换。但是如果双击打开或者在预览界面编辑它，它就会在tab上面常驻，需要手动关闭。这在手工查找文件内容的时候很实用
+- Auto Hide Menu Bar //自动隐藏菜单栏，屏幕小的话可以选上，按下alt键就会出来了
+- File Encoding //Atom的默认编码方式是utf8, 很奇怪这个设置是放在这里而不是Core Settings里面</p>
+<h5>Edit Settings</h5>
+<p><em>可以设置字体，行高，默认行宽等</em><br>
+- Atomic Soft Tabs //行前tab长度的空格也当做tab来处理
+- Show Invisibles //显示回车、空格、tab这些特殊字符，便于编辑Python等对空格敏感的语言
+- Scroll Past End //文档末尾是否可以继续往上拉，对于在编辑时需要按很多回车强迫文章末尾上拉的我来说很有用。
+- Show Cursor On Selection //不喜欢选上以后后面还有一个光标在闪啊闪，所以取消选择了。
+- Show Indent Guide //缩进指示符，写python代码很有用的
+- Show Line Numbers //显示行号
+- Tab Type //tab类型，auto为自动检测，soft为用空格代替tab，hard为tab原始输入
+- Soft Tabs //Tab Type设置成auto时，当系统无法检测到文档所用tab类型时，默认用空格代替tab
+- Tab Length //tab键的宽度，默认是2，个人习惯是4，一般建议html设成2
+- Soft Wrap At Prefered Line Length //单行长度超过设置值时就自动换行，如果是写代码的话就不要选了，应该主动做到行宽不超过设置长度，如果是写文章的话就可以选一下，以方便查看。</p>
+<h5>System Settings</h5>
+<p><em>下面的几个设置都挺有用的可以都选上</em><br>
+- Register as file handler //在打开方式中增加Atom
+- Show in file context menus //可以右击用Atom打开文件
+- Show in folder context menus //可以右击用Atom打开文件夹</p>
+<h5>Keybindings</h5>
+<p><em>这里可以查看所有的快捷方式，可以在keymap.cson文件中重定义这些</em><br>
+格式如下</p>
+<div class="highlight"><pre><span></span>&#39;atom-text-editor&#39;:
+  &#39;enter&#39;: &#39;editor:newline&#39;
+
+&#39;atom-workspace&#39;:
+  &#39;ctrl-shift-p&#39;: &#39;core:move-up&#39;
+  &#39;ctrl-p&#39;: &#39;core:move-down&#39;
+</pre></div>
+
+
+<h5>Packages &amp; Themes</h5>
+<p><em>包和主题的管理</em><br>
+Atom的所有功能都是由包来实现的，所有已经按照的包列在包的设置界面中，可以在这里卸载包，设置单个包的属性等
+Atom的主题也可以自由定制，在这个页面可以选择以及设置主题，个人喜欢UI Theme:OneLight 以及Syntax Theme:Solarized Right。</p>
+<h5>install</h5>
+<p><em>安装</em><br>
+如果想要安装包或者新的主题，可以在这里搜索并且安装。</p>
+<h3>常用快捷键&amp;命令</h3>
+<p>罗列下常用的一些快捷键及命令  </p>
+<table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>命令</th>
+<th>注释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ctrl-\</td>
+<td>tree-view:toggle</td>
+<td>隐藏或重新显示目录树</td>
+</tr>
+<tr>
+<td>ctrl-0</td>
+<td></td>
+<td>可以将焦点切换到目录树</td>
+</tr>
+<tr>
+<td>ctrl-shift-o</td>
+<td></td>
+<td>打开目录</td>
+</tr>
+<tr>
+<td>ctrl-T</td>
+<td>fuzzy-finder:toggle-file-finder</td>
+<td>打卡项目中的文件</td>
+</tr>
+<tr>
+<td>ctrl-B</td>
+<td>fuzzy-finder:toggle-buffer-finder</td>
+<td>查找已经打开的</td>
+</tr>
+<tr>
+<td>ctrl-shift-B</td>
+<td>fuzzy-finder:toggle-git-status-finder</td>
+<td>只查找从上次 Git 提交之后修改过或新增的文件</td>
+</tr>
+<tr>
+<td>ctrl-left</td>
+<td>editor:move-to-beginning-of-word</td>
+<td>光标移到词首</td>
+</tr>
+<tr>
+<td>ctrl-right</td>
+<td>editor:move-to-end-of-word</td>
+<td>光标移到词尾</td>
+</tr>
+<tr>
+<td>home</td>
+<td>editor:move-to-first-character-of-line</td>
+<td>移到行首</td>
+</tr>
+<tr>
+<td>end</td>
+<td>editor:move-to-end-of-screen-line</td>
+<td>移到行尾</td>
+</tr>
+<tr>
+<td>ctrl-home</td>
+<td>core:move-to-top</td>
+<td>移到页首</td>
+</tr>
+<tr>
+<td>ctrl-end</td>
+<td>core:move-to-bottom</td>
+<td>移到页尾</td>
+</tr>
+<tr>
+<td>ctrl-g</td>
+<td>go-to-line:toggle</td>
+<td>跳到指定行，或者跳到指定行的指定位置（row:column）</td>
+</tr>
+<tr>
+<td>Alt+Ctrl+F2</td>
+<td></td>
+<td>标记或者取消标记书签</td>
+</tr>
+<tr>
+<td>F2</td>
+<td></td>
+<td>跳到下一个标签</td>
+</tr>
+<tr>
+<td>Shift+F2</td>
+<td></td>
+<td>跳到上一个标签</td>
+</tr>
+<tr>
+<td>Ctrl+F2</td>
+<td></td>
+<td>标签列表</td>
+</tr>
+<tr>
+<td>Shift+Up</td>
+<td></td>
+<td>向上选择</td>
+</tr>
+<tr>
+<td>Shift+Down</td>
+<td></td>
+<td>向下选择</td>
+</tr>
+<tr>
+<td>Shift+Left</td>
+<td></td>
+<td>向左选择</td>
+</tr>
+<tr>
+<td>Shift+Right</td>
+<td></td>
+<td>向右选择</td>
+</tr>
+<tr>
+<td>Ctrl+Shift+Left</td>
+<td></td>
+<td>选择到单词首</td>
+</tr>
+<tr>
+<td>Ctrl+Shift+Right</td>
+<td></td>
+<td>选择到单词尾</td>
+</tr>
+<tr>
+<td>Shift+Home</td>
+<td></td>
+<td>选择到行首</td>
+</tr>
+<tr>
+<td>Shift+End</td>
+<td></td>
+<td>选择到行末</td>
+</tr>
+<tr>
+<td>Ctrl+Shift+Home</td>
+<td></td>
+<td>选择到页首</td>
+</tr>
+<tr>
+<td>Ctrl+Shift+End</td>
+<td></td>
+<td>选择到页尾</td>
+</tr>
+<tr>
+<td>Ctrl+A</td>
+<td></td>
+<td>全部选择</td>
+</tr>
+<tr>
+<td>Ctrl+L</td>
+<td></td>
+<td>选择整行</td>
+</tr>
+<tr>
+<td>Ctrl+J</td>
+<td></td>
+<td>合并下一行与当前行</td>
+</tr>
+<tr>
+<td>Ctrl+Up/Down</td>
+<td></td>
+<td>整行上移或者下移</td>
+</tr>
+<tr>
+<td>Ctrl+Shift+D</td>
+<td></td>
+<td>复制当前行并贴在下行</td>
+</tr>
+<tr>
+<td>Ctrl+K Ctrl+U</td>
+<td></td>
+<td>全部转为大写字母</td>
+</tr>
+<tr>
+<td>Ctrl+K Ctrl+L</td>
+<td></td>
+<td>全部转为小写字母</td>
+</tr>
+<tr>
+<td>Ctrl+Shift+K</td>
+<td></td>
+<td>删除当前行_（容易与搜狐输入法弹出软键盘的快捷方式冲突）_</td>
+</tr>
+<tr>
+<td>Ctrl+Backspace</td>
+<td></td>
+<td>删除到词首</td>
+</tr>
+<tr>
+<td>Ctrl+Delete</td>
+<td></td>
+<td>删除到词首</td>
+</tr>
+<tr>
+<td>Ctrl+Click</td>
+<td></td>
+<td>在所点击位置增加光标</td>
+</tr>
+<tr>
+<td>Alt+Ctrl+Up/Down</td>
+<td></td>
+<td>在上面或者下面增加光标</td>
+</tr>
+<tr>
+<td>Ctrl+D</td>
+<td></td>
+<td>选中下一个与当前选择相同的内容</td>
+</tr>
+<tr>
+<td>Alt+F3</td>
+<td></td>
+<td>选中所有与当前选择相同的内容</td>
+</tr>
+<tr>
+<td>---</td>
+<td>Convert Spaces to Tabs</td>
+<td>将制表符长度空格转换为制表符</td>
+</tr>
+<tr>
+<td>---</td>
+<td>Convert Tabs to Spaces</td>
+<td>将所有制表符转换为等长空格</td>
+</tr>
+<tr>
+<td>Ctrl+M</td>
+<td></td>
+<td>跳到光标附近括号对应的括号上，如果光标附近没有括号，跳到最近的括号上</td>
+</tr>
+<tr>
+<td>Alt+Ctrl+,</td>
+<td></td>
+<td>选中括号对中的所有文字</td>
+</tr>
+<tr>
+<td>Alt+Ctrl+.</td>
+<td></td>
+<td>关闭当前XML/HTML标签</td>
+</tr>
+<tr>
+<td>Ctrl+Shift+U</td>
+<td></td>
+<td>激活编码方式选择菜单</td>
+</tr>
+<tr>
+<td>Ctrl+F</td>
+<td></td>
+<td>文本内搜索</td>
+</tr>
+<tr>
+<td>Ctrl+Shift+F</td>
+<td></td>
+<td>工程中搜索</td>
+</tr>
+<tr>
+<td>Alt+Ctrl+[</td>
+<td></td>
+<td>折叠代码</td>
+</tr>
+<tr>
+<td>Alt+Ctrl+]</td>
+<td></td>
+<td>展开代码</td>
+</tr>
+<tr>
+<td>Alt+Ctrl+Shift+[</td>
+<td></td>
+<td>折叠所有代码</td>
+</tr>
+<tr>
+<td>Alt+Ctrl+Shift+]</td>
+<td></td>
+<td>展开所有代码</td>
+</tr>
+<tr>
+<td>---</td>
+<td>Fold Selection</td>
+<td>折叠任意文本</td>
+</tr>
+<tr>
+<td>Ctrl+K Up/Down/Left/Right</td>
+<td></td>
+<td>不同方向建立窗格</td>
+</tr>
+<tr>
+<td>Ctrl+W</td>
+<td></td>
+<td>关闭当前窗格</td>
+</tr>
+<tr>
+<td>Ctrl+8</td>
+<td></td>
+<td>打开github页面</td>
+</tr>
+<tr>
+<td>Ctrl+9</td>
+<td></td>
+<td>打开git页面</td>
+</tr>
+<tr>
+<td>Ctrl+Shift+M</td>
+<td></td>
+<td>Markdown文件预览</td>
+</tr>
+</tbody>
+</table>
+<h3>奇技淫巧</h3>
+<ul>
+<li>你可以通过快捷键 ctrl-\ 或 tree-view:toggle 命令来隐藏或重新显示目录树，用快捷键 ctrl-0 可以将焦点切换到目录树。当焦点位于目录树上时，你可以用快捷键 a、m 以及 delete 来创建、移动或删除文件和目录。你还可以简单地在目录树中用右键点击文件，你可以看到更多选项，除了前面提到的，还可以在操作系统的文件浏览器中显示文件、复制文件的路径到剪贴板。</li>
+<li>可以使用Snippets快速输入，只要输入关键词语再按制表键或者回车键就可以输入预先定义好的文本内容，Snippets默认支持很多语言的文本类型，也可以自己配置更多。<code>Snippets: Available</code>命令用于查看当前可用的所有Snippets。比如输入<code>img</code>再敲入<code>tab</code>键就会快速输入<code>![]()</code>，输入<code>table</code>再敲入<code>tab</code>键就会快速得到一个表格模板</li>
+</ul>	
+
+      
+      <h3 class="blogMeta">By <a href="#">signsmile</a>, Category: <a href="./category/skills.html">skills</a></h3>
+<h3 class="blogMeta">Tags: <span><a href="./tag/atom.html">Atom</a> / </span>
+</h3>    
+    </div><!-- end #blogItem -->
+	
+        <div class="blogItem">
+                <h2>Other articles</h2>
+        </div>
+        
+    
+    <div class="blogItem">
+    
+      <h2><a href="./atomde-markdown-writercha-jian.html">Atom的Markdown Writer插件</a></h2>
+      <h3>Tue 19 December 2017</h3>
+      
+      <blockquote>
+<p><a href="https://atom.io/packages/markdown-writer">markdown-writer</a>插件用于帮助快速编写Markdown文件
+<a href="https://atom.io/packages/tool-bar-markdown-writer">tool-bar-markdown-writer</a>插件用于将markdown-writer的功能集成到工具条上</p>
+</blockquote>
+<h3>Atom内置</h3>
+<p>Atom已经内置了很多Snippet用来快速编写Markdown文件, 比如<br>
+- 输入<code>img</code>再敲入<code>tab</code>键就会快速输入<code>![]()</code>
+- 输入<code>table</code>再敲入<code>tab</code>键就会得到一个表格模板
+- 输入<code>b</code>再敲入<code>tab</code>键就会快速输入加粗标记<code>****</code>
+- 输入<code>i</code>再敲入<code>tab</code>键就会快速输入斜体标记<code>**</code>
+- 输入<code>code</code>再敲入<code>tab</code>键就会快速输入代码块
+- ......</p>
+<h3><a href="https://atom.io/packages/markdown-writer">markdown-writer</a></h3>
+<p>但是毕竟这些功能有限, 比如在导入图片的时候还是需要进行很多手工的操作，所以这时候就需要用到<a href="https://atom.io/packages/markdown-writer">markdown-writer</a>了。<br>
+<a href="https://atom.io/packages/markdown-writer">markdown-writer</a>的主要有以下这些便捷方式能够方便流畅的写文章:  </p>
+<h5>快捷键</h5>
+<div class="highlight"><pre><span></span>&quot;shift-ctrl-I&quot;: &quot;markdown-writer:insert-image&quot;              //插入图片
+&quot;shift-ctrl-k&quot;: &quot;markdown-writer:insert-link&quot;               //插入链接
+&quot;ctrl-i …</pre></div>	
+<h3 class="blogMeta">By <a href="#">signsmile</a>, Category: <a href="./category/skills.html">skills</a></h3>
+	<a href="./atomde-markdown-writercha-jian.html">Continue reading …</a>
+      
+      
+	
+    
+    </div><!-- end #blogItem -->
+        
+    
+    <div class="blogItem">
+    
       <h2><a href="./pelicanpei-zhi.html">Pelican配置</a></h2>
-      <h3>周一 11 十二月 2017</h3>
+      <h3>Mon 11 December 2017</h3>
       
       <p>详细的配置项参考官方文档<a href="http://docs.getpelican.com/en/3.7.1/settings.html">Pelican配置</a><br>
 这里贴下我自己的配置, 目前所做改动不多，主要是生成文章时候的一些配置，后续随着个性化配置增多，这个文章也会随时更新。
@@ -131,131 +546,20 @@
 34
 35
 36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
-<span class="c1"># -*- coding: utf-8 -*- #</span>
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">unicode_literals</span>
-
-<span class="n">AUTHOR</span> <span class="o">=</span> <span class="sa">u</span><span class="s1">&#39;signsmile&#39;</span>
-<span class="n">SITENAME</span> <span class="o">=</span> <span class="sa">u</span><span class="s1">&#39;</span><span class="se">\u62db\u724c\u5f0f\u7684\u5fae\u7b11</span><span class="s1">&#39;</span>
-<span class="n">SITEURL</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
-
-<span class="n">PATH</span> <span class="o">=</span> <span class="s1">&#39;content&#39;</span>
-
-<span class="n">TIMEZONE</span> <span class="o">=</span> <span class="s1">&#39;Asia/Shanghai&#39;</span>
-
-<span class="n">DEFAULT_LANG</span> <span class="o">=</span> <span class="sa">u</span><span class="s1">&#39;Chinese (Simplified)&#39;</span>
-
-<span class="n">GITHUB_URL</span> <span class="o">=</span> <span class="s1">&#39;https://github.com/signsmile/&#39;</span>
-<span class="c1"># DISQUS_SITENAME = &quot;xxx&quot; disqus被墙了没法用，占个坑吧</span>
-
-<span class="c1"># Feed generation is usually not desired when developing</span>
-<span class="n">FEED_ALL_ATOM</span> <span class="o">=</span> <span class="bp">None</span>
-<span class="n">CATEGORY_FEED_ATOM</span> <span class="o">=</span> <span class="bp">None</span>
-<span class="n">TRANSLATION_FEED_ATOM</span> <span class="o">=</span> <span class="bp">None</span>
-<span class="n">AUTHOR_FEED_ATOM</span> <span class="o">=</span> <span class="bp">None</span>
-<span class="n">AUTHOR_FEED_RSS</span> <span class="o">=</span> <span class="bp">None</span>
-
-<span class="c1"># Blogroll</span>
-<span class="n">LINKS</span> <span class="o">=</span> <span class="p">((</span><span class="s1">&#39;Pelican&#39;</span><span class="p">,</span> <span class="s1">&#39;http://getpelican.com/&#39;</span><span class="p">),</span>
-         <span class="p">(</span><span class="s1">&#39;Python.org&#39;</span><span class="p">,</span> <span class="s1">&#39;http://python.org/&#39;</span><span class="p">),</span>
-         <span class="p">(</span><span class="s1">&#39;Jinja2&#39;</span><span class="p">,</span> <span class="s1">&#39;http://jinja.pocoo.org/&#39;</span><span class="p">),</span>
-         <span class="p">(</span><span class="s1">&#39;You can modify those links in your config file&#39;</span><span class="p">,</span> <span class="s1">&#39;#&#39;</span><span class="p">),)</span>
-
-<span class="c1"># Social widget</span>
-<span class="n">SOCIAL</span> <span class="o">=</span> <span class="p">((</span><span class="s1">&#39;You can add links in your config file&#39;</span><span class="p">,</span> <span class="s1">&#39;#&#39;</span><span class="p">),</span>
-          <span class="p">(</span><span class="s1">&#39;Another social link&#39;</span><span class="p">,</span> <span class="s1">&#39;#&#39;</span><span class="p">),)</span>
-
-<span class="n">DEFAULT_PAGINATION</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="n">DEFAULT_DATE</span> <span class="o">=</span> <span class="s1">&#39;fs&#39;</span>
-<span class="n">FILENAME_METADATA</span> <span class="o">=</span> <span class="s1">&#39;(?P&lt;date&gt;\d{4}-\d{2}-\d{2})&#39;</span>
-
-<span class="c1"># Uncomment following line if you want document-relative URLs when developing</span>
-<span class="n">RELATIVE_URLS</span> <span class="o">=</span> <span class="bp">True</span>
-
-<span class="n">STATIC_PATHS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;images&#39;</span><span class="p">,</span> <span class="s1">&#39;extra/CNAME&#39;</span><span class="p">]</span>
-<span class="n">EXTRA_PATH_METADATA</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;extra/CNAME&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;path&#39;</span><span class="p">:</span> <span class="s1">&#39;CNAME&#39;</span><span class="p">},}</span>
-
-<span class="n">THEME</span> <span class="o">=</span> <span class="s1">&#39;themes\waterspill-en&#39;</span>
-<span class="c1">#TEMPLATE_PAGES = {&#39;pages/jinja2_template.html&#39;: &#39;jinja2_template.html&#39;}</span>
-</pre></div>
-</td></tr></table>
-
-<h3>publishconf.py</h3>
-<p><em>发布要用的配置文件，会继承pelicanconf.py的所有内容</em></p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
-<span class="c1"># -*- coding: utf-8 -*- #</span>
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">unicode_literals</span>
-
-<span class="c1"># This file is only used if you use `make publish` or</span>
-<span class="c1"># explicitly specify it as your config file.</span>
-
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">sys</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">curdir</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">pelicanconf</span> <span class="kn">import</span> <span class="o">*</span>
-
-<span class="n">SITEURL</span> <span class="o">=</span> <span class="s1">&#39;https://blog.signsmile.com&#39;</span>
-<span class="n">RELATIVE_URLS</span> <span class="o">=</span> <span class="bp">False</span>
-
-<span class="n">FEED_ALL_ATOM</span> <span class="o">=</span> <span class="s1">&#39;feeds/all.atom.xml&#39;</span>
-<span class="n">CATEGORY_FEED_ATOM</span> <span class="o">=</span> <span class="s1">&#39;feeds/</span><span class="si">%s</span><span class="s1">.atom.xml&#39;</span>
-
-<span class="n">DELETE_OUTPUT_DIRECTORY</span> <span class="o">=</span> <span class="bp">True</span>
-
-<span class="c1"># Following items are often useful when publishing</span>
-
-<span class="c1">#DISQUS_SITENAME = &quot;&quot;</span>
-<span class="c1">#GOOGLE_ANALYTICS = &quot;&quot;</span>
-</pre></div>
-</td></tr></table>	
-
+37 …</pre></div></td></tr></table>	
+<h3 class="blogMeta">By <a href="#">signsmile</a>, Category: <a href="./category/skills.html">skills</a></h3>
+	<a href="./pelicanpei-zhi.html">Continue reading …</a>
       
-      <h3 class="blogMeta">By <a href="#">signsmile</a>, Category: <a href="./category/skills.html">Skills</a></h3>
-<h3 class="blogMeta">Tags: <span><a href="./tag/pelican.html">Pelican</a> / </span>
-</h3>    
-    </div><!-- end #blogItem -->
+      
 	
-        <div class="blogItem">
-                <h2>Other articles</h2>
-        </div>
+    
+    </div><!-- end #blogItem -->
         
     
     <div class="blogItem">
     
       <h2><a href="./pelicanzi-dong-fa-bu-dao-github.html">Pelican自动发布到github</a></h2>
-      <h3>周六 09 十二月 2017</h3>
+      <h3>Sat 09 December 2017</h3>
       
       <blockquote>
 <p>今天说下用Pelican写作过程中的自动发布流程，主要用到了<a href="http://www.fabfile.org/">Fabric</a>
@@ -276,7 +580,7 @@
 </ul>
 <h1>配置</h1>
 <p><code>pelican-quickstart</code>过程会自动在工程的根目录下生成一个fabfile.py …</p>	
-<h3 class="blogMeta">By <a href="#">signsmile</a>, Category: <a href="./category/skills.html">Skills</a></h3>
+<h3 class="blogMeta">By <a href="#">signsmile</a>, Category: <a href="./category/skills.html">skills</a></h3>
 	<a href="./pelicanzi-dong-fa-bu-dao-github.html">Continue reading …</a>
       
       
@@ -288,7 +592,7 @@
     <div class="blogItem">
     
       <h2><a href="./pelicanxie-zuo-zi-shi.html">Pelican写作姿势</a></h2>
-      <h3>周三 06 十二月 2017</h3>
+      <h3>Wed 06 December 2017</h3>
       
       <p>熟悉你的工具，才能用好它，
 所以接下来几天我都会深入研究一下Pelican这个工具在实际场合上的应用。
@@ -305,7 +609,7 @@ DISPLAY_PAGES_ON_MENU用来配置是否将Pages显示为导航菜单，而status
 <div class="highlight"><pre><span></span><span class="n">Title</span><span class="o">:</span> <span class="n">My</span> <span class="kd">super</span> <span class="n">title</span>  <span class="c1">//标题，唯一一个必须的，其他都可选</span>
 <span class="n">Date</span><span class="o">:</span> <span class="mi">2010</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">03</span> <span class="mi">10</span><span class="o">:</span><span class="mi">20</span>  <span class="c1">//创建时间，如未指定且DEFAULT_DATE被设置为fs，文件的“mtime”时间戳将会被使用</span>
 <span class="n">Modified</span><span class="o">:</span> <span class="mi">2010</span><span class="o">-</span><span class="mi">12 …</span></pre></div>	
-<h3 class="blogMeta">By <a href="#">signsmile</a>, Category: <a href="./category/skills.html">Skills</a></h3>
+<h3 class="blogMeta">By <a href="#">signsmile</a>, Category: <a href="./category/skills.html">skills</a></h3>
 	<a href="./pelicanxie-zuo-zi-shi.html">Continue reading …</a>
       
       
@@ -317,7 +621,7 @@ DISPLAY_PAGES_ON_MENU用来配置是否将Pages显示为导航菜单，而status
     <div class="blogItem">
     
       <h2><a href="./zai-github-pagesshang-da-jian-bo-ke.html">在github pages上搭建博客</a></h2>
-      <h3>周二 05 十二月 2017</h3>
+      <h3>Tue 05 December 2017</h3>
       
       <blockquote>
 <p>在上传Pelican生成的静态网站的时候发现绑定的域名没法访问，
@@ -341,7 +645,7 @@ git add README.md
 git commit -m &quot;first commit&quot;
 git remote add origin &gt; https://github.com/signsmile/signsmile.github.io.git
 git …</pre></div></blockquote></li></ol>	
-<h3 class="blogMeta">By <a href="#">signsmile</a>, Category: <a href="./category/skills.html">Skills</a></h3>
+<h3 class="blogMeta">By <a href="#">signsmile</a>, Category: <a href="./category/skills.html">skills</a></h3>
 	<a href="./zai-github-pagesshang-da-jian-bo-ke.html">Continue reading …</a>
       
       
@@ -353,7 +657,7 @@ git …</pre></div></blockquote></li></ol>
     <div class="blogItem">
     
       <h2><a href="./li-yong-puttysheng-cheng-sshgong-yao-si-yao.html">利用Putty生成SSH公钥私钥</a></h2>
-      <h3>周一 04 十二月 2017</h3>
+      <h3>Mon 04 December 2017</h3>
       
       <p>装完git，居然没有ssh-keygen命令。无奈只好求助于putty，下载<a href="https://the.earth.li/~sgtatham/putty/latest/w64/putty.zip">putty</a>整个免安装的压缩包，里面有个PUTTYGEN.EXE工具可用于生成SSH的公钥和私钥</p>
 <p><img alt="PUTTYGEN目录" src="./images/PuTTY_Key_Generator_1.png"></p>
@@ -379,7 +683,7 @@ git …</pre></div></blockquote></li></ol>
 </li>
 </ol>
 <p><strong>Tip:windows下直接创建以.开头的文件或者目录会报错，在后面再跟一个.就可以了。比如 <code>.ssh.</code></strong></p>	
-<h3 class="blogMeta">By <a href="#">signsmile</a>, Category: <a href="./category/skills.html">Skills</a></h3>
+<h3 class="blogMeta">By <a href="#">signsmile</a>, Category: <a href="./category/skills.html">skills</a></h3>
 	<a href="./li-yong-puttysheng-cheng-sshgong-yao-si-yao.html">Continue reading …</a>
       
       
@@ -391,7 +695,7 @@ git …</pre></div></blockquote></li></ol>
     <div class="blogItem">
     
       <h2><a href="./pelicanru-men.html">Pelican入门</a></h2>
-      <h3>周日 03 十二月 2017</h3>
+      <h3>Sun 03 December 2017</h3>
       
       <p>在github搭建博客，刚开始用<a href="https://jekyllrb.com/">Jekyll</a>，然后发现里面的Markdown排版很奇葩，网上说要换Markdown解析器，不想折腾（有时候懒是一种美德）。继而研究<a href="https://hexo.io/">Hexo</a>，环境还没装好呢，让我看到了<a href="http://docs.getpelican.com/en/stable/">Pelican</a>......</p>
 <p>我这不刚好有python环境吗？于是乎......</p>
@@ -412,7 +716,7 @@ cd ~/projects/yoursite
 Welcome to pelican-quickstart v3.7.1.
 
 This script will help you …</pre></div>	
-<h3 class="blogMeta">By <a href="#">signsmile</a>, Category: <a href="./category/skills.html">Skills</a></h3>
+<h3 class="blogMeta">By <a href="#">signsmile</a>, Category: <a href="./category/skills.html">skills</a></h3>
 	<a href="./pelicanru-men.html">Continue reading …</a>
       
       
@@ -424,7 +728,7 @@ This script will help you …</pre></div>
     <div class="blogItem">
     
       <h2><a href="./markdownyu-fa-su-cha.html">Markdown语法速查</a></h2>
-      <h3>周六 02 十二月 2017</h3>
+      <h3>Sat 02 December 2017</h3>
       
       <blockquote>
 <p>word没法git管理，txt没法排版，Markdown正合适</p>
@@ -498,7 +802,7 @@ This script will help you …</pre></div>
 <p>二级区块</p>
 <blockquote>
 <p>三级区块 …</p></blockquote></blockquote></blockquote>	
-<h3 class="blogMeta">By <a href="#">signsmile</a>, Category: <a href="./category/skills.html">Skills</a></h3>
+<h3 class="blogMeta">By <a href="#">signsmile</a>, Category: <a href="./category/skills.html">skills</a></h3>
 	<a href="./markdownyu-fa-su-cha.html">Continue reading …</a>
       
       
@@ -510,7 +814,7 @@ This script will help you …</pre></div>
     <div class="blogItem">
     
       <h2><a href="./di-yi-pian-wen-zhang.html">第一篇文章</a></h2>
-      <h3>周五 01 十二月 2017</h3>
+      <h3>Fri 01 December 2017</h3>
       
       <p>这是我用Pelican搭建的第一篇文章</p>	
 <h3 class="blogMeta">By <a href="#">signsmile</a>, Category: <a href="./category/blogs.html">Blogs</a></h3>
