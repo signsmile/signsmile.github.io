@@ -18,7 +18,7 @@ Tags: github
 >     git remote add origin > https://github.com/signsmile/signsmile.github.io.git
 >     git push -u origin master
 
-    这里需要事先设置好[ssh公钥私钥]({filename}/Skills/2017-12-04 利用Putty生成SSH公钥私钥.md)，以便获得push的权限。当然也可以在每次push的时候输入账户密码
+    这里需要事先设置好[ssh公钥私钥]({filename}/skills/2017-12-04 利用Putty生成SSH公钥私钥.md)，以便获得push的权限。当然也可以在每次push的时候输入账户密码
 >     $ git push -u origin master
 >     Username for 'https://github.com': signsmile
 
