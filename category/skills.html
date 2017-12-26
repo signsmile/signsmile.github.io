@@ -71,8 +71,10 @@
             <h3>Tags</h3>
             <ul>
                     <li><a href="../tag/pelican.html">Pelican</a></li>
-                    <li><a href="../tag/github.html">github</a></li>
                     <li><a href="../tag/markdown.html">Markdown</a></li>
+                    <li><a href="../tag/github.html">github</a></li>
+                    <li><a href="../tag/hook.html">Hook</a></li>
+                    <li><a href="../tag/git.html">Git</a></li>
                     <li><a href="../tag/ssh.html">SSH</a></li>
                     <li><a href="../tag/putty.html">Putty</a></li>
                     <li><a href="../tag/atom.html">Atom</a></li>
@@ -86,6 +88,185 @@
  
         
   	
+    <div class="blogItem">
+    
+      <h2><a href="../zi-ding-yi-git.html">自定义Git</a></h2>
+      <h3>Tue 26 December 2017</h3>
+      
+      <blockquote>
+<p>之前在摆弄Pelican发布的时候发现git还有一个叫钩子的东东，处于好奇，想系统的看看自定义git的这一部分。
+<a href="https://git-scm.com/book/en/v2">Pre git</a>这书是学习git强烈推荐的，这里的内容主要来自它的<a href="https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration">第八章自定义git</a>。</p>
+</blockquote>
+<h1>Git 配置</h1>
+<blockquote>
+<p>文章开头首先澄清了git的几个配置文件以及其优先级</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>配置文件等级</th>
+<th>系统级</th>
+<th>用户级</th>
+<th>项目级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>git命令</td>
+<td>--system</td>
+<td>--global</td>
+<td>--local</td>
+</tr>
+<tr>
+<td>windows路径</td>
+<td>$PROGRAMDATA/Git/config</td>
+<td>$HOME/.config/git/config or ~/.gitconfig</td>
+<td>$GIT_DIR/config</td>
+</tr>
+<tr>
+<td>linux路径</td>
+<td>$(prefix)/etc/gitconfig</td>
+<td>$HOME/.config/git/config or ~/.gitconfig</td>
+<td>$GIT_DIR/config</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>然后介绍了几个有用的配置项</p>
+</blockquote>
+<h5>core.editor</h5>
+<p><em>配置提交时候的默认编辑器</em></p>
+<div class="highlight"><pre><span></span>$ git config --global core.editor emacs  //配置emacs为默认编辑器
+$ git config --global core.editor <span class="s2">&quot;atom --wait&quot;</span> //atom官网提供的配置，配置atom为默认编辑器
+</pre></div>
+
+
+<h5>commit.template</h5>
+<p><em>指定提交时候所有的格式模板文件</em></p>
+<div class="highlight"><pre><span></span>$ git config --global commit.template ~/.gitmessage.txt
+$ git commit
+</pre></div>
+
+
+<p>提交时候就会自动完成文件中信息的占位</p>
+<h5>core.pager</h5>
+<p>该配置项指定 Git 运行诸如 log 和 diff 等命令所使用的分页器。命令输出超过一页时，自动在每页输出后暂停，可以按空格继续显示，按q退出</p>
+<h5>help.autocorrect</h5>
+<p>自动改正并运行命令，如果你把 help.autocorrect 设置成 1，那么只要有一个命令被模糊匹配到了，Git 会自动运行该命令。
+help.autocorrect 接受一个代表十分之一秒的整数。 所以如果你把它设置为 50, Git 将在自动执行命令前给你 5 秒的时间改变主意。</p>
+<h5>merge.tool</h5>
+<p>可用常用的图形化的diff及merge工具来替代默认的diff及merge工具。</p>
+<h5>core.autocrlf</h5>
+<div class="highlight"><pre><span></span>$ git config --global core.autocrlf <span class="nb">true</span> //提交时自动地把回车和换行转换成换行，而在检出代码时把换行转换成回车和换行（适合windows用户）
+$ git config --global core.autocrlf input //提交时把回车和换行转换成换行，检出时不转换（适合Linux用户）
+$ git config --global core.autocrlf <span class="nb">false</span> //都不转换（适合只在windows工作的用户）
+</pre></div>
+
+
+<h1>Git 属性</h1>
+<p>主要讲根目录下.gitattributes文件的设置，这一章兴趣点不大，等以后需要用到了再<a href="https://git-scm.com/book/en/v2/Customizing-Git-Git-Attributes">细看</a>。
+不过还是有两点可以关注的，docx2txt对word文件进行版本管理，利用exiftool 对图像进行版本管理。</p>
+<h1>Git 钩子</h1>
+<p>终于来到钩子了，这个才是我现在最关心的功能
+<strong>在特定的重要动作发生时触发自定义脚本。 有两组这样的钩子：客户端的和服务器端的。 客户端钩子由诸如提交和合并这样的操作所调用，而服务器端钩子作用于诸如接收被推送的提交这样的联网操作。 </strong></p>
+<p>把一个正确命名且可执行的文件放入 Git 目录下的 hooks 子目录中（.git/hooks默认有一些钩子的例子 ），即可激活该钩子脚本。
+钩子的触发完全是根据钩子的文件名来，所以钩子的文件名一定要正确，主要有如下列表：</p>
+<table>
+<thead>
+<tr>
+<th>文件名</th>
+<th>运行条件</th>
+<th>应用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pre-commit</td>
+<td>钩子在键入提交信息前运行</td>
+<td>用于检查即将提交的快照</td>
+</tr>
+<tr>
+<td>prepare-commit-msg</td>
+<td>启动提交信息编辑器之前，默认信息被创建之后运行</td>
+<td>可以结合提交模板来使用它，动态地插入信息。</td>
+</tr>
+<tr>
+<td>commit-msg</td>
+<td>用户输入提交信息之后运行，提交动作执行之前</td>
+<td>在提交通过前验证项目状态或提交信息。</td>
+</tr>
+<tr>
+<td>post-commit</td>
+<td>钩子在整个提交过程完成后运行</td>
+<td>其可以改变 git commit 命令的输出，因此主要被用作通知提醒。</td>
+</tr>
+<tr>
+<td>pre-rebase</td>
+<td>运行于变基之前，以非零值退出可以中止变基的过程</td>
+<td>禁止对已经推送的提交变基</td>
+</tr>
+<tr>
+<td>post-rewrite</td>
+<td>被那些会替换提交记录的命令调用（git commit --amend 和 git rebase等）</td>
+<td></td>
+</tr>
+<tr>
+<td>post-checkout</td>
+<td>git checkout 成功运行后</td>
+<td>项目环境用它调整你的工作目录</td>
+</tr>
+<tr>
+<td>post-merge</td>
+<td>git merge 成功运行后</td>
+<td>恢复 Git 无法跟踪的工作区数据</td>
+</tr>
+<tr>
+<td>pre-push</td>
+<td>git push 运行期间， 更新了远程引用但尚未传送对象时被调用</td>
+<td>在推送开始之前，用它验证对引用的更新操作</td>
+</tr>
+<tr>
+<td>pre-receive</td>
+<td>服务器处理来自客户端的推送操作时</td>
+<td>阻止对引用进行非快进（non-fast-forward）的更新，或者对该推送所修改的所有引用和文件进行访问控制</td>
+</tr>
+<tr>
+<td>update</td>
+<td>为每一个准备更新的分支各运行一次</td>
+<td>如推送者同时向多个分支推送内容，pre-receive 只运行一次，相比之下 update 则会为每一个被推送的分支各运行一次。</td>
+</tr>
+<tr>
+<td>post-receive</td>
+<td>在整个过程完结以后运行</td>
+<td>用来更新其他系统服务或者通知用户</td>
+</tr>
+</tbody>
+</table>
+<p>钩子支持很多种脚本语言，Python，Ruby等均支持</p>
+<p>下面是一个Demo，在Pelicam提交的过程中自动发布博客，并且上传到github
+文件：post-commit</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
+pelican content -o output -s pelicanconf.py
+ghp-import -b master output -p
+</pre></div>
+</td></tr></table>
+
+<p>有个坑啊，本来吧这个放在<code>pre-push</code>上面的，然后writer分支提交完后触发mater分支提交，mater分支提交完后又被自己触发，死循环了。。。 最终还是<code>post-commit</code>了。</p>	
+
+      
+      <h3 class="blogMeta">By <a href="#">signsmile</a>, Category: <a href="../category/skills.html">skills</a></h3>
+<h3 class="blogMeta">Tags: <span><a href="../tag/git.html">Git</a> / </span>
+<span><a href="../tag/hook.html">Hook</a> / </span>
+</h3>    
+    </div><!-- end #blogItem -->
+	
+        <div class="blogItem">
+                <h2>Other articles</h2>
+        </div>
+        
+    
     <div class="blogItem">
     
       <h2><a href="../atomfei-xing-shou-ce-de-fei-xing-shou-ce.html">Atom飞行手册的飞行手册</a></h2>
@@ -106,365 +287,14 @@
 - Allow pending Pane Items //这个功能很有意思，它能让你在单击一个文件的时候不完全打开它，只是生成一个预览界面，会自动被后面打开的文件给替换。但是如果双击打开或者在预览界面编辑它，它就会在tab上面常驻，需要手动关闭。这在手工查找文件内容的时候很实用
 - Auto Hide Menu Bar //自动隐藏菜单栏，屏幕小的话可以选上，按下alt键就会出来了
 - File Encoding //Atom的默认编码方式是utf8, 很奇怪这个设置是放在这里而不是Core Settings里面</p>
-<h5>Edit Settings</h5>
-<p><em>可以设置字体，行高，默认行宽等</em><br>
-- Atomic Soft Tabs //行前tab长度的空格也当做tab来处理
-- Show Invisibles //显示回车、空格、tab这些特殊字符，便于编辑Python等对空格敏感的语言
-- Scroll Past End //文档末尾是否可以继续往上拉，对于在编辑时需要按很多回车强迫文章末尾上拉的我来说很有用。
-- Show Cursor On Selection //不喜欢选上以后后面还有一个光标在闪啊闪，所以取消选择了。
-- Show Indent Guide //缩进指示符，写python代码很有用的
-- Show Line Numbers //显示行号
-- Tab Type //tab类型，auto为自动检测，soft为用空格代替tab，hard为tab原始输入
-- Soft Tabs //Tab Type设置成auto时，当系统无法检测到文档所用tab类型时，默认用空格代替tab
-- Tab Length //tab键的宽度，默认是2，个人习惯是4，一般建议html设成2
-- Soft Wrap At Prefered Line Length //单行长度超过设置值时就自动换行，如果是写代码的话就不要选了，应该主动做到行宽不超过设置长度，如果是写文章的话就可以选一下，以方便查看。</p>
-<h5>System Settings</h5>
-<p><em>下面的几个设置都挺有用的可以都选上</em><br>
-- Register as file handler //在打开方式中增加Atom
-- Show in file context menus //可以右击用Atom打开文件
-- Show in folder context menus //可以右击用Atom打开文件夹</p>
-<h5>Keybindings</h5>
-<p><em>这里可以查看所有的快捷方式，可以在keymap.cson文件中重定义这些</em><br>
-格式如下</p>
-<div class="highlight"><pre><span></span>&#39;atom-text-editor&#39;:
-  &#39;enter&#39;: &#39;editor:newline&#39;
-
-&#39;atom-workspace&#39;:
-  &#39;ctrl-shift-p&#39;: &#39;core:move-up&#39;
-  &#39;ctrl-p&#39;: &#39;core:move-down&#39;
-</pre></div>
-
-
-<h5>Packages &amp; Themes</h5>
-<p><em>包和主题的管理</em><br>
-Atom的所有功能都是由包来实现的，所有已经按照的包列在包的设置界面中，可以在这里卸载包，设置单个包的属性等
-Atom的主题也可以自由定制，在这个页面可以选择以及设置主题，个人喜欢UI Theme:OneLight 以及Syntax Theme:Solarized Right。</p>
-<h5>install</h5>
-<p><em>安装</em><br>
-如果想要安装包或者新的主题，可以在这里搜索并且安装。</p>
-<h1>常用快捷键&amp;命令</h1>
-<p>罗列下常用的一些快捷键及命令  </p>
-<table>
-<thead>
-<tr>
-<th>快捷键</th>
-<th>命令</th>
-<th>注释</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>ctrl-\</td>
-<td>tree-view:toggle</td>
-<td>隐藏或重新显示目录树</td>
-</tr>
-<tr>
-<td>ctrl-0</td>
-<td></td>
-<td>可以将焦点切换到目录树</td>
-</tr>
-<tr>
-<td>ctrl-shift-o</td>
-<td></td>
-<td>打开目录</td>
-</tr>
-<tr>
-<td>ctrl-T</td>
-<td>fuzzy-finder:toggle-file-finder</td>
-<td>打卡项目中的文件</td>
-</tr>
-<tr>
-<td>ctrl-B</td>
-<td>fuzzy-finder:toggle-buffer-finder</td>
-<td>查找已经打开的</td>
-</tr>
-<tr>
-<td>ctrl-shift-B</td>
-<td>fuzzy-finder:toggle-git-status-finder</td>
-<td>只查找从上次 Git 提交之后修改过或新增的文件</td>
-</tr>
-<tr>
-<td>ctrl-left</td>
-<td>editor:move-to-beginning-of-word</td>
-<td>光标移到词首</td>
-</tr>
-<tr>
-<td>ctrl-right</td>
-<td>editor:move-to-end-of-word</td>
-<td>光标移到词尾</td>
-</tr>
-<tr>
-<td>home</td>
-<td>editor:move-to-first-character-of-line</td>
-<td>移到行首</td>
-</tr>
-<tr>
-<td>end</td>
-<td>editor:move-to-end-of-screen-line</td>
-<td>移到行尾</td>
-</tr>
-<tr>
-<td>ctrl-home</td>
-<td>core:move-to-top</td>
-<td>移到页首</td>
-</tr>
-<tr>
-<td>ctrl-end</td>
-<td>core:move-to-bottom</td>
-<td>移到页尾</td>
-</tr>
-<tr>
-<td>ctrl-g</td>
-<td>go-to-line:toggle</td>
-<td>跳到指定行，或者跳到指定行的指定位置（row:column）</td>
-</tr>
-<tr>
-<td>Alt+Ctrl+F2</td>
-<td></td>
-<td>标记或者取消标记书签</td>
-</tr>
-<tr>
-<td>F2</td>
-<td></td>
-<td>跳到下一个标签</td>
-</tr>
-<tr>
-<td>Shift+F2</td>
-<td></td>
-<td>跳到上一个标签</td>
-</tr>
-<tr>
-<td>Ctrl+F2</td>
-<td></td>
-<td>标签列表</td>
-</tr>
-<tr>
-<td>Shift+Up</td>
-<td></td>
-<td>向上选择</td>
-</tr>
-<tr>
-<td>Shift+Down</td>
-<td></td>
-<td>向下选择</td>
-</tr>
-<tr>
-<td>Shift+Left</td>
-<td></td>
-<td>向左选择</td>
-</tr>
-<tr>
-<td>Shift+Right</td>
-<td></td>
-<td>向右选择</td>
-</tr>
-<tr>
-<td>Ctrl+Shift+Left</td>
-<td></td>
-<td>选择到单词首</td>
-</tr>
-<tr>
-<td>Ctrl+Shift+Right</td>
-<td></td>
-<td>选择到单词尾</td>
-</tr>
-<tr>
-<td>Shift+Home</td>
-<td></td>
-<td>选择到行首</td>
-</tr>
-<tr>
-<td>Shift+End</td>
-<td></td>
-<td>选择到行末</td>
-</tr>
-<tr>
-<td>Ctrl+Shift+Home</td>
-<td></td>
-<td>选择到页首</td>
-</tr>
-<tr>
-<td>Ctrl+Shift+End</td>
-<td></td>
-<td>选择到页尾</td>
-</tr>
-<tr>
-<td>Ctrl+A</td>
-<td></td>
-<td>全部选择</td>
-</tr>
-<tr>
-<td>Ctrl+L</td>
-<td></td>
-<td>选择整行</td>
-</tr>
-<tr>
-<td>Ctrl+J</td>
-<td></td>
-<td>合并下一行与当前行</td>
-</tr>
-<tr>
-<td>Ctrl+Up/Down</td>
-<td></td>
-<td>整行上移或者下移</td>
-</tr>
-<tr>
-<td>Ctrl+Shift+D</td>
-<td></td>
-<td>复制当前行并贴在下行</td>
-</tr>
-<tr>
-<td>Ctrl+K Ctrl+U</td>
-<td></td>
-<td>全部转为大写字母</td>
-</tr>
-<tr>
-<td>Ctrl+K Ctrl+L</td>
-<td></td>
-<td>全部转为小写字母</td>
-</tr>
-<tr>
-<td>Ctrl+Shift+K</td>
-<td></td>
-<td>删除当前行_（容易与搜狐输入法弹出软键盘的快捷方式冲突）_</td>
-</tr>
-<tr>
-<td>Ctrl+Backspace</td>
-<td></td>
-<td>删除到词首</td>
-</tr>
-<tr>
-<td>Ctrl+Delete</td>
-<td></td>
-<td>删除到词首</td>
-</tr>
-<tr>
-<td>Ctrl+Click</td>
-<td></td>
-<td>在所点击位置增加光标</td>
-</tr>
-<tr>
-<td>Alt+Ctrl+Up/Down</td>
-<td></td>
-<td>在上面或者下面增加光标</td>
-</tr>
-<tr>
-<td>Ctrl+D</td>
-<td></td>
-<td>选中下一个与当前选择相同的内容</td>
-</tr>
-<tr>
-<td>Alt+F3</td>
-<td></td>
-<td>选中所有与当前选择相同的内容</td>
-</tr>
-<tr>
-<td>---</td>
-<td>Convert Spaces to Tabs</td>
-<td>将制表符长度空格转换为制表符</td>
-</tr>
-<tr>
-<td>---</td>
-<td>Convert Tabs to Spaces</td>
-<td>将所有制表符转换为等长空格</td>
-</tr>
-<tr>
-<td>Ctrl+M</td>
-<td></td>
-<td>跳到光标附近括号对应的括号上，如果光标附近没有括号，跳到最近的括号上</td>
-</tr>
-<tr>
-<td>Alt+Ctrl+,</td>
-<td></td>
-<td>选中括号对中的所有文字</td>
-</tr>
-<tr>
-<td>Alt+Ctrl+.</td>
-<td></td>
-<td>关闭当前XML/HTML标签</td>
-</tr>
-<tr>
-<td>Ctrl+Shift+U</td>
-<td></td>
-<td>激活编码方式选择菜单</td>
-</tr>
-<tr>
-<td>Ctrl+F</td>
-<td></td>
-<td>文本内搜索</td>
-</tr>
-<tr>
-<td>Ctrl+Shift+F</td>
-<td></td>
-<td>工程中搜索</td>
-</tr>
-<tr>
-<td>Alt+Ctrl+[</td>
-<td></td>
-<td>折叠代码</td>
-</tr>
-<tr>
-<td>Alt+Ctrl+]</td>
-<td></td>
-<td>展开代码</td>
-</tr>
-<tr>
-<td>Alt+Ctrl+Shift+[</td>
-<td></td>
-<td>折叠所有代码</td>
-</tr>
-<tr>
-<td>Alt+Ctrl+Shift+]</td>
-<td></td>
-<td>展开所有代码</td>
-</tr>
-<tr>
-<td>---</td>
-<td>Fold Selection</td>
-<td>折叠任意文本</td>
-</tr>
-<tr>
-<td>Ctrl+K Up/Down/Left/Right</td>
-<td></td>
-<td>不同方向建立窗格</td>
-</tr>
-<tr>
-<td>Ctrl+W</td>
-<td></td>
-<td>关闭当前窗格</td>
-</tr>
-<tr>
-<td>Ctrl+8</td>
-<td></td>
-<td>打开github页面</td>
-</tr>
-<tr>
-<td>Ctrl+9</td>
-<td></td>
-<td>打开git页面</td>
-</tr>
-<tr>
-<td>Ctrl+Shift+M</td>
-<td></td>
-<td>Markdown文件预览</td>
-</tr>
-</tbody>
-</table>
-<h1>奇技淫巧</h1>
-<ul>
-<li>你可以通过快捷键 ctrl-\ 或 tree-view:toggle 命令来隐藏或重新显示目录树，用快捷键 ctrl-0 可以将焦点切换到目录树。当焦点位于目录树上时，你可以用快捷键 a、m 以及 delete 来创建、移动或删除文件和目录。你还可以简单地在目录树中用右键点击文件，你可以看到更多选项，除了前面提到的，还可以在操作系统的文件浏览器中显示文件、复制文件的路径到剪贴板。</li>
-<li>可以使用Snippets快速输入，只要输入关键词语再按制表键或者回车键就可以输入预先定义好的文本内容，Snippets默认支持很多语言的文本类型，也可以自己配置更多。<code>Snippets: Available</code>命令用于查看当前可用的所有Snippets。比如输入<code>img</code>再敲入<code>tab</code>键就会快速输入<code>![]()</code>，输入<code>table</code>再敲入<code>tab</code>键就会快速得到一个表格模板</li>
-</ul>	
-
+<h5>Edit …</h5>	
+<h3 class="blogMeta">By <a href="#">signsmile</a>, Category: <a href="../category/skills.html">skills</a></h3>
+	<a href="../atomfei-xing-shou-ce-de-fei-xing-shou-ce.html">Continue reading …</a>
       
-      <h3 class="blogMeta">By <a href="#">signsmile</a>, Category: <a href="../category/skills.html">skills</a></h3>
-<h3 class="blogMeta">Tags: <span><a href="../tag/atom.html">Atom</a> / </span>
-</h3>    
-    </div><!-- end #blogItem -->
+      
 	
-        <div class="blogItem">
-                <h2>Other articles</h2>
-        </div>
+    
+    </div><!-- end #blogItem -->
         
     
     <div class="blogItem">
