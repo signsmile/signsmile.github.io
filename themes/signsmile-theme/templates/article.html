@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% block head %}
+  {{ super() }}
+  {% if article.description %}
+    <meta name="description" content="{{article.summary}}" />
+  {% endif %}
+
+  {% for tag in article.tags %}
+    <meta name="tags" content="{{tag}}" />
+  {% endfor %}
+
+{% endblock %}
+
+{% block content %}
+<div id="content">
+<div class="inner">
+  <article class="box post post-excerpt">
+                <header> 
+                <h2><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h2> 
+                <p>{{article.headline}}</p>
+                </header>
+                <div class="info">
+                    <span class="date" datetime="{{ article.date.isoformat() }}"><span class="month">{{ article.date | strftime('%b')  }}</span> <span class="day">{{ article.date | strftime('%d')  }}</span> <span class="month"> {{ article.date | strftime('%Y')  }}</span></span>
+                    <ul class="stats">
+                                    <li><a href="mailto:?Subject={{article.title}}&Body=I%20saw%20this%20and%20thought%20of%20you!%20 {{ SITEURL }}/{{ article.url }}" class="icon fa-envelope">&nbsp;</a></li>
+                                    <li><a href="http://reddit.com/submit?url={{ SITEURL }}/{{ article.url }}&title=#{{article.title}}"" class="icon fa-reddit">&nbsp;</a></li>
+                                    <li><a href="https://twitter.com/share?url={{ SITEURL }}/{{ article.url }}&text=&hashtags=GnotC" class="icon fa-twitter">&nbsp;</a></li>
+                                    <li><a href="https://www.facebook.com/sharer.php?u={{ SITEURL }}/{{ article.url }}" class="icon fa-facebook">&nbsp;</a></li>
+                                </ul>
+                </div><!-- /.post-info -->
+                <div class="entry-content"> &nbsp; </div><!-- /.entry-content -->
+        </article>
+    {{ article.content }}
+  </div><!-- /.entry-content -->
+
+  <!-- Comments -->
+  <div class="comments">
+    {% if article.comments %}
+      {% for comment in article.comments recursive %}
+        {% if loop.depth0 == 0 %}
+          {% set marginLeft = 0 %}
+        {% else %}
+          {% set marginLeft = 50 %}
+        {% endif %}
+          <article id="comment-{{comment.slug}}" style="border: 1px solid #DDDDDD; padding: 5px 0px 0px 5px; margin: 0px -1px 5px {{marginLeft}}px;">
+            <a href="{{ SITEURL }}/{{ article.url }}#comment-{{comment.slug}}" rel="bookmark" title="Permalink to this comment">Permalink</a>
+            <h4>{{ comment.author }}</h4>
+            <p>Posted on <abbr class="published" title="{{ comment.date.isoformat() }}">{{ comment.locale_date }}</abbr></p>
+            {{ comment.metadata['my_custom_metadata'] }}
+            {{ comment.content }}
+            {% if comment.replies %}
+              {{ loop(comment.replies) }}
+            {% endif %}
+          </article>
+      {% endfor %}
+    {% else %}
+      <p>There are no comments yet.<p>
+    {% endif %}
+  </div>
+
+  <!-- Pagination -->
+  <div class="pagination">
+    {% if article.prev_article %}
+      <a class="button previous" href="{{ SITEURL }}/{{ article.prev_article_in_category.url}}">
+        {{ article.prev_article_in_category.title }}
+      </a>
+    {% endif %}
+    {% if article.next_article %}
+      <a class="button next" href="{{ SITEURL }}/{{ article.next_article_in_category.url}}">
+        {{ article.next_article_in_category.title }}
+      </a>
+    {% endif %}
+  </div>
+</div>
+</div>
+{% endblock %}

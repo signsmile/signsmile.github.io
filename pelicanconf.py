@@ -3,7 +3,8 @@
 from __future__ import unicode_literals
 
 AUTHOR = u'signsmile'
-SITENAME = u'\u62db\u724c\u5f0f\u7684\u5fae\u7b11'
+SITENAME = u'SIGNSMILE DRONE'
+SITESUBTITLE = u'一个程序员，汽车电子从业人员，无人机爱好者所思所想'
 SITEURL = ''
 
 PATH = 'content'
@@ -41,6 +42,10 @@ RELATIVE_URLS = True
 
 STATIC_PATHS = ['images', 'extra/CNAME']
 EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'},}
-
-THEME = 'themes\waterspill-en'
+THEME = 'themes\signsmile-theme'
 #TEMPLATE_PAGES = {'pages/jinja2_template.html': 'jinja2_template.html'}
+
+PLUGIN_PATHS = ['./plugins']
+PLUGINS = ['pelican_comment_system', 'neighbors']
+
+PELICAN_COMMENT_SYSTEM = True
