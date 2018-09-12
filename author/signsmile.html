@@ -1,670 +1,181 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-
+<!DOCTYPE html>
+<html lang="chinese (simplified)">
 <head>
-
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  
-  <title>招牌式的微笑 - Articles by signsmile</title>
-<link href="../theme/css/style.css" rel="stylesheet" type="text/css" media="screen" />
-<link href="../" type="application/atom+xml" rel="alternate" title="招牌式的微笑 ATOM Feed" />
-  
-  <!--[if IE]>
-  <style type="text/css"> 
-  .twoColFixRtHdr #mainContent { zoom: 1; }
-  </style>
-  <![endif]-->
-
+    <title>SIGNSMILE DRONE - Articles by signsmile</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="/theme/css/main.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--[if lte IE 8]><script src="/theme/js/ie/html5shiv.js"></script><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="/theme/css/ie8.css" /><![endif]-->
 </head>
 
 <body>
-
-<div id="container">
-
-  <div id="header">
-  <h1><a href="../index.html">招牌式的微笑</h1>
-  
-  </div><!-- end #header -->
-  
-  <div id="topMenu">
-  
-    <ul>
-    	<li><a href="../index.html">Home</a></li>
-        <li>&ndash;</li>
-        <li><a href="../archives.html">Archives</a></li>
+    <!-- <header id="banner" class="body"> -->
+        <!-- <h1><a href="../">SIGNSMILE DRONE <strong>一个程序员，汽车电子从业人员，无人机爱好者所思所想</strong></a></h1> -->
+    <!--</header>-- /#banner -->
+    
+    <!-- Sidebar -->
+    <div id="sidebar">
+        <!-- Logo -->
+        <h1 id="logo"><a href="/">SIGNSMILE DRONE</a></h1>
+        <!-- Text -->
+        <section class="box text-style1">
+            <div class="inner">
+                <p>
+                    <strong>生命不息，折腾不止:</strong><br />一个程序员，汽车电子从业人员，无人机爱好者所思所想
+                </p>
+            </div>
+        </section>
+        <!-- Nav -->
+        <nav id="nav">
+            <ul>
+                <li><a href="../archives.html">文章列表</a></li>
+            </ul>
+        </nav>
         
-    </ul>
-  
-  </div><!-- end #topMenu -->
-
-  <div id="sidebar">
-    <ul>
-	<li>
-	    <h3>Pages</h3>
-	    <ul>
-	    </ul>
-	</li>
-	<li>
+        <div>
             <h3>Categories</h3>
             <ul>
-		     <li ><a href="../category/blogs.html">Blogs</a></li>
-		     <li ><a href="../category/skills.html">skills</a></li>
-	    </ul>
-	</li>
-	<li>
-		<h3>Blogroll</h3>
-		<ul>
-                    <li><a href="http://getpelican.com/">Pelican</a></li>
-                    <li><a href="http://python.org/">Python.org</a></li>
-                    <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
-                    <li><a href="#">You can modify those links in your config file</a></li>
-		</ul>
-	</li>
-        <li>
-                <h3>Social</h3>
-                <ul>
-                    <li><a href="#">You can add links in your config file</a></li>
-                    <li><a href="#">Another social link</a></li>
-                </ul>
-        </li><!-- /.social -->
-        <li>
-            <h3>Tags</h3>
-            <ul>
-                    <li><a href="../tag/pelican.html">Pelican</a></li>
-                    <li><a href="../tag/markdown.html">Markdown</a></li>
-                    <li><a href="../tag/github.html">github</a></li>
-                    <li><a href="../tag/hook.html">Hook</a></li>
-                    <li><a href="../tag/git.html">Git</a></li>
-                    <li><a href="../tag/ssh.html">SSH</a></li>
-                    <li><a href="../tag/putty.html">Putty</a></li>
-                    <li><a href="../tag/atom.html">Atom</a></li>
+                 <li ><a href="../category/blogs.html">Blogs</a></li>
+                 <li ><a href="../category/skills.html">skills</a></li>
             </ul>
-        </li>
-    </ul>
-  </div><!-- end #sidebar -->
-
-  <div id="mainContent">
-  	
- 
-        
-  	
-    <div class="blogItem">
-    
-      <h2><a href="../zi-ding-yi-git.html">自定义Git</a></h2>
-      <h3>Tue 26 December 2017</h3>
-      
-      <blockquote>
-<p>之前在摆弄Pelican发布的时候发现git还有一个叫钩子的东东，处于好奇，想系统的看看自定义git的这一部分。
-<a href="https://git-scm.com/book/en/v2">Pre git</a>这书是学习git强烈推荐的，这里的内容主要来自它的<a href="https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration">第八章自定义git</a>。</p>
-</blockquote>
-<h1>Git 配置</h1>
-<blockquote>
-<p>文章开头首先澄清了git的几个配置文件以及其优先级</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>配置文件等级</th>
-<th>系统级</th>
-<th>用户级</th>
-<th>项目级</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>git命令</td>
-<td>--system</td>
-<td>--global</td>
-<td>--local</td>
-</tr>
-<tr>
-<td>windows路径</td>
-<td>$PROGRAMDATA/Git/config</td>
-<td>$HOME/.config/git/config or ~/.gitconfig</td>
-<td>$GIT_DIR/config</td>
-</tr>
-<tr>
-<td>linux路径</td>
-<td>$(prefix)/etc/gitconfig</td>
-<td>$HOME/.config/git/config or ~/.gitconfig</td>
-<td>$GIT_DIR/config</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>然后介绍了几个有用的配置项</p>
-</blockquote>
-<h5>core.editor</h5>
-<p><em>配置提交时候的默认编辑器</em></p>
-<div class="highlight"><pre><span></span>$ git config --global core.editor emacs  //配置emacs为默认编辑器
-$ git config --global core.editor <span class="s2">&quot;atom --wait&quot;</span> //atom官网提供的配置，配置atom为默认编辑器
-</pre></div>
-
-
-<h5>commit.template</h5>
-<p><em>指定提交时候所有的格式模板文件</em></p>
-<div class="highlight"><pre><span></span>$ git config --global commit.template ~/.gitmessage.txt
-$ git commit
-</pre></div>
-
-
-<p>提交时候就会自动完成文件中信息的占位</p>
-<h5>core.pager</h5>
-<p>该配置项指定 Git 运行诸如 log 和 diff 等命令所使用的分页器。命令输出超过一页时，自动在每页输出后暂停，可以按空格继续显示，按q退出</p>
-<h5>help.autocorrect</h5>
-<p>自动改正并运行命令，如果你把 help.autocorrect 设置成 1，那么只要有一个命令被模糊匹配到了，Git 会自动运行该命令。
-help.autocorrect 接受一个代表十分之一秒的整数。 所以如果你把它设置为 50, Git 将在自动执行命令前给你 5 秒的时间改变主意。</p>
-<h5>merge.tool</h5>
-<p>可用常用的图形化的diff及merge工具来替代默认的diff及merge工具。</p>
-<h5>core.autocrlf</h5>
-<div class="highlight"><pre><span></span>$ git config --global core.autocrlf <span class="nb">true</span> //提交时自动地把回车和换行转换成换行，而在检出代码时把换行转换成回车和换行（适合windows用户）
-$ git config --global core.autocrlf input //提交时把回车和换行转换成换行，检出时不转换（适合Linux用户）
-$ git config --global core.autocrlf <span class="nb">false</span> //都不转换（适合只在windows工作的用户）
-</pre></div>
-
-
-<h1>Git 属性</h1>
-<p>主要讲根目录下.gitattributes文件的设置，这一章兴趣点不大，等以后需要用到了再<a href="https://git-scm.com/book/en/v2/Customizing-Git-Git-Attributes">细看</a>。
-不过还是有两点可以关注的，docx2txt对word文件进行版本管理，利用exiftool 对图像进行版本管理。</p>
-<h1>Git 钩子</h1>
-<p>终于来到钩子了，这个才是我现在最关心的功能
-<strong>在特定的重要动作发生时触发自定义脚本。 有两组这样的钩子：客户端的和服务器端的。 客户端钩子由诸如提交和合并这样的操作所调用，而服务器端钩子作用于诸如接收被推送的提交这样的联网操作。 </strong></p>
-<p>把一个正确命名且可执行的文件放入 Git 目录下的 hooks 子目录中（.git/hooks默认有一些钩子的例子 ），即可激活该钩子脚本。
-钩子的触发完全是根据钩子的文件名来，所以钩子的文件名一定要正确，主要有如下列表：</p>
-<table>
-<thead>
-<tr>
-<th>文件名</th>
-<th>运行条件</th>
-<th>应用场景</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>pre-commit</td>
-<td>钩子在键入提交信息前运行</td>
-<td>用于检查即将提交的快照</td>
-</tr>
-<tr>
-<td>prepare-commit-msg</td>
-<td>启动提交信息编辑器之前，默认信息被创建之后运行</td>
-<td>可以结合提交模板来使用它，动态地插入信息。</td>
-</tr>
-<tr>
-<td>commit-msg</td>
-<td>用户输入提交信息之后运行，提交动作执行之前</td>
-<td>在提交通过前验证项目状态或提交信息。</td>
-</tr>
-<tr>
-<td>post-commit</td>
-<td>钩子在整个提交过程完成后运行</td>
-<td>其可以改变 git commit 命令的输出，因此主要被用作通知提醒。</td>
-</tr>
-<tr>
-<td>pre-rebase</td>
-<td>运行于变基之前，以非零值退出可以中止变基的过程</td>
-<td>禁止对已经推送的提交变基</td>
-</tr>
-<tr>
-<td>post-rewrite</td>
-<td>被那些会替换提交记录的命令调用（git commit --amend 和 git rebase等）</td>
-<td></td>
-</tr>
-<tr>
-<td>post-checkout</td>
-<td>git checkout 成功运行后</td>
-<td>项目环境用它调整你的工作目录</td>
-</tr>
-<tr>
-<td>post-merge</td>
-<td>git merge 成功运行后</td>
-<td>恢复 Git 无法跟踪的工作区数据</td>
-</tr>
-<tr>
-<td>pre-push</td>
-<td>git push 运行期间， 更新了远程引用但尚未传送对象时被调用</td>
-<td>在推送开始之前，用它验证对引用的更新操作</td>
-</tr>
-<tr>
-<td>pre-receive</td>
-<td>服务器处理来自客户端的推送操作时</td>
-<td>阻止对引用进行非快进（non-fast-forward）的更新，或者对该推送所修改的所有引用和文件进行访问控制</td>
-</tr>
-<tr>
-<td>update</td>
-<td>为每一个准备更新的分支各运行一次</td>
-<td>如推送者同时向多个分支推送内容，pre-receive 只运行一次，相比之下 update 则会为每一个被推送的分支各运行一次。</td>
-</tr>
-<tr>
-<td>post-receive</td>
-<td>在整个过程完结以后运行</td>
-<td>用来更新其他系统服务或者通知用户</td>
-</tr>
-</tbody>
-</table>
-<p>钩子支持很多种脚本语言，Python，Ruby等均支持</p>
-<p>下面是一个Demo，在Pelicam提交的过程中自动发布博客，并且上传到github
-文件：post-commit</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
-pelican content -o output -s pelicanconf.py
-ghp-import -b master output -p
-</pre></div>
-</td></tr></table>
-
-<p>有个坑啊，本来吧这个放在<code>pre-push</code>上面的，然后writer分支提交完后触发mater分支提交，mater分支提交完后又被自己触发，死循环了。。。 最终还是<code>post-commit</code>了。</p>	
-
-      
-      <h3 class="blogMeta">By <a href="#">signsmile</a>, Category: <a href="../category/skills.html">skills</a></h3>
-<h3 class="blogMeta">Tags: <span><a href="../tag/git.html">Git</a> / </span>
-<span><a href="../tag/hook.html">Hook</a> / </span>
-</h3>    
-    </div><!-- end #blogItem -->
-	
-        <div class="blogItem">
-                <h2>Other articles</h2>
         </div>
-        
-    
-    <div class="blogItem">
-    
-      <h2><a href="../atomfei-xing-shou-ce-de-fei-xing-shou-ce.html">Atom飞行手册的飞行手册</a></h2>
-      <h3>Mon 25 December 2017</h3>
-      
-      <blockquote>
-<p>通读了一遍<a href="http://flight-manual.atom.io/">Atom飞行手册</a>的第一章快速入门以及第二章使用Atom，做了简单笔记，方便以后查阅。</p>
-</blockquote>
-<h1>命令面板</h1>
-<p>Atom的操作方式是以命令为基础的，不管是菜单功能还是内置的一些快捷键本质上都是执行Atom命令。而命令面板可以直接去执行Atom具备的所有命令，包括但不限于菜单栏上的功能以及快捷键的功能。打开命令面板的方式为快捷键 <code>cmd-shift-p</code>，在命令面板上带搜索功能的框中可以输入键字即可搜索到相应命令，点击鼠标左键或者按下回车就可以执行命令。<br>
-如下图就是打开atom设置界面的命令:
-<img alt="atom command panel" src="../images/2017/12/Atom_Command_Panel.png">
-当然也可以根据右侧的提示用快捷键<code>Ctrl+,</code>来打开</p>
-<h1>设置界面</h1>
-<p>既然已经打开了设置界面，那就简单说说设置界面中一些有意思的</p>
-<h5>Core Settings</h5>
-<p><em>核心设置，保持默认就行</em><br>
-- Allow pending Pane Items //这个功能很有意思，它能让你在单击一个文件的时候不完全打开它，只是生成一个预览界面，会自动被后面打开的文件给替换。但是如果双击打开或者在预览界面编辑它，它就会在tab上面常驻，需要手动关闭。这在手工查找文件内容的时候很实用
-- Auto Hide Menu Bar //自动隐藏菜单栏，屏幕小的话可以选上，按下alt键就会出来了
-- File Encoding //Atom的默认编码方式是utf8, 很奇怪这个设置是放在这里而不是Core Settings里面</p>
-<h5>Edit …</h5>	
-<h3 class="blogMeta">By <a href="#">signsmile</a>, Category: <a href="../category/skills.html">skills</a></h3>
-	<a href="../atomfei-xing-shou-ce-de-fei-xing-shou-ce.html">Continue reading …</a>
-      
-      
-	
-    
-    </div><!-- end #blogItem -->
-        
-    
-    <div class="blogItem">
-    
-      <h2><a href="../atomde-markdown-writercha-jian.html">Atom的Markdown Writer插件</a></h2>
-      <h3>Tue 19 December 2017</h3>
-      
-      <blockquote>
-<p><a href="https://atom.io/packages/markdown-writer">markdown-writer</a>插件用于帮助快速编写Markdown文件
-<a href="https://atom.io/packages/tool-bar-markdown-writer">tool-bar-markdown-writer</a>插件用于将markdown-writer的功能集成到工具条上</p>
-</blockquote>
-<h3>Atom内置</h3>
-<p>Atom已经内置了很多Snippet用来快速编写Markdown文件, 比如<br>
-- 输入<code>img</code>再敲入<code>tab</code>键就会快速输入<code>![]()</code>
-- 输入<code>table</code>再敲入<code>tab</code>键就会得到一个表格模板
-- 输入<code>b</code>再敲入<code>tab</code>键就会快速输入加粗标记<code>****</code>
-- 输入<code>i</code>再敲入<code>tab</code>键就会快速输入斜体标记<code>**</code>
-- 输入<code>code</code>再敲入<code>tab</code>键就会快速输入代码块
-- ......</p>
-<h3><a href="https://atom.io/packages/markdown-writer">markdown-writer</a></h3>
-<p>但是毕竟这些功能有限, 比如在导入图片的时候还是需要进行很多手工的操作，所以这时候就需要用到<a href="https://atom.io/packages/markdown-writer">markdown-writer</a>了。<br>
-<a href="https://atom.io/packages/markdown-writer">markdown-writer</a>的主要有以下这些便捷方式能够方便流畅的写文章:  </p>
-<h5>快捷键</h5>
-<div class="highlight"><pre><span></span>&quot;shift-ctrl-I&quot;: &quot;markdown-writer:insert-image&quot;              //插入图片
-&quot;shift-ctrl-k&quot;: &quot;markdown-writer:insert-link&quot;               //插入链接
-&quot;ctrl-i …</pre></div>	
-<h3 class="blogMeta">By <a href="#">signsmile</a>, Category: <a href="../category/skills.html">skills</a></h3>
-	<a href="../atomde-markdown-writercha-jian.html">Continue reading …</a>
-      
-      
-	
-    
-    </div><!-- end #blogItem -->
-        
-    
-    <div class="blogItem">
-    
-      <h2><a href="../pelicanpei-zhi.html">Pelican配置</a></h2>
-      <h3>Mon 11 December 2017</h3>
-      
-      <p>详细的配置项参考官方文档<a href="http://docs.getpelican.com/en/3.7.1/settings.html">Pelican配置</a><br>
-这里贴下我自己的配置, 目前所做改动不多，主要是生成文章时候的一些配置，后续随着个性化配置增多，这个文章也会随时更新。
-另外，我特别喜欢waterspill-en这个主题，把它放到了工程目录下的themes上了。</p>
-<h3>pelicanconf.py</h3>
-<p><em>基础配置文件</em></p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37 …</pre></div></td></tr></table>	
-<h3 class="blogMeta">By <a href="#">signsmile</a>, Category: <a href="../category/skills.html">skills</a></h3>
-	<a href="../pelicanpei-zhi.html">Continue reading …</a>
-      
-      
-	
-    
-    </div><!-- end #blogItem -->
-        
-    
-    <div class="blogItem">
-    
-      <h2><a href="../pelicanzi-dong-fa-bu-dao-github.html">Pelican自动发布到github</a></h2>
-      <h3>Sat 09 December 2017</h3>
-      
-      <blockquote>
-<p>今天说下用Pelican写作过程中的自动发布流程，主要用到了<a href="http://www.fabfile.org/">Fabric</a>
-以及<a href="https://github.com/davisp/ghp-import">ghp-import</a>这两个工具</p>
-</blockquote>
-<h1>简介</h1>
-<p><strong><a href="http://www.fabfile.org/">Fabric</a></strong> 是一个命令行工具，能够简化SSH的使用，主要用于应用的部署和系统管理任务。它能通过fab命令执行fabfile.py文件中自行定制的任务函数，任务函数中可以使用run函数通过SSH执行远端主机命令，local函数用于执行本地命令。<br>
-<strong><a href="https://github.com/davisp/ghp-import">ghp-import</a></strong> 是专门用来将你的静态网站导入到github pages的工具。由于静态网站需要部署在github和根目录下，这样会导致Pelican工程文件和生成的静态网站文件没法在同一个github仓库中维护。而ghp-import能方便的建立并维护一个独立的分支（master或者gh-pages）专门用来维护静态网站（output目录），而用户可以手动的在另外的分支维护Pelican工程文件。</p>
-<h1>安装</h1>
-<p><strong>Fabric</strong></p>
-<ul>
-<li><code>$ pip install fabric</code></li>
-</ul>
-<p><strong>ghp-import</strong></p>
-<ul>
-<li>linux下 <code>pip install ghp-import</code></li>
-<li>Windows下 <code>pip install https://github.com/chevah/ghp-import/archive/win-support.zip</code></li>
-</ul>
-<h1>配置</h1>
-<p><code>pelican-quickstart</code>过程会自动在工程的根目录下生成一个fabfile.py …</p>	
-<h3 class="blogMeta">By <a href="#">signsmile</a>, Category: <a href="../category/skills.html">skills</a></h3>
-	<a href="../pelicanzi-dong-fa-bu-dao-github.html">Continue reading …</a>
-      
-      
-	
-    
-    </div><!-- end #blogItem -->
-        
-    
-    <div class="blogItem">
-    
-      <h2><a href="../pelicanxie-zuo-zi-shi.html">Pelican写作姿势</a></h2>
-      <h3>Wed 06 December 2017</h3>
-      
-      <p>熟悉你的工具，才能用好它，
-所以接下来几天我都会深入研究一下Pelican这个工具在实际场合上的应用。
-因为我这边是用Markdown进行写作的，下面涉及的内容都是关于Markdown的。
-详细的内容可以参考官方手册<a href="http://docs.getpelican.com/en/3.7.1/content.html">Writing content</a>，
-这里仅对我所感兴趣的部分进行罗列</p>
-<h2>文章和页面</h2>
-<p>首先，所有产生的文档都放在content下面，用于生成相应的静态页面。
-文档分两种，Articles和Pages。Pages与Articles的唯一区别就是Pages放在<code>content/pages</code>目录下面，
-而其他任何地方放的文档都是Articles。一般Articles用来写文章、博客等，而Pages用来写不经常变动的比如个人简介、联系方式等。
-DISPLAY_PAGES_ON_MENU用来配置是否将Pages显示为导航菜单，而status: hidden进行单个Page设置</p>
-<h2>文件元数据</h2>
-<p>Markdown的文档信息格式如下</p>
-<div class="highlight"><pre><span></span><span class="n">Title</span><span class="o">:</span> <span class="n">My</span> <span class="kd">super</span> <span class="n">title</span>  <span class="c1">//标题，唯一一个必须的，其他都可选</span>
-<span class="n">Date</span><span class="o">:</span> <span class="mi">2010</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">03</span> <span class="mi">10</span><span class="o">:</span><span class="mi">20</span>  <span class="c1">//创建时间，如未指定且DEFAULT_DATE被设置为fs，文件的“mtime”时间戳将会被使用</span>
-<span class="n">Modified</span><span class="o">:</span> <span class="mi">2010</span><span class="o">-</span><span class="mi">12 …</span></pre></div>	
-<h3 class="blogMeta">By <a href="#">signsmile</a>, Category: <a href="../category/skills.html">skills</a></h3>
-	<a href="../pelicanxie-zuo-zi-shi.html">Continue reading …</a>
-      
-      
-	
-    
-    </div><!-- end #blogItem -->
-        
-    
-    <div class="blogItem">
-    
-      <h2><a href="../zai-github-pagesshang-da-jian-bo-ke.html">在github pages上搭建博客</a></h2>
-      <h3>Tue 05 December 2017</h3>
-      
-      <blockquote>
-<p>在上传Pelican生成的静态网站的时候发现绑定的域名没法访问，
-上网一搜是因为缺少CNAME文件的配置，于是决定罗列下github上搭建博客的步骤，以备查询</p>
-</blockquote>
-<ol>
-<li>
-<p>首先得有个github账号，账号申请就不说了，<a href="https://github.com/">github传送门</a></p>
-</li>
-<li>
-<p>注册账号后<a href="https://github.com/new">新建一个仓库(repository)</a><br>
-这里需要特别留意的是仓库的名字必须以<code>{username}.github.io</code>命名，<code>{username}</code>用自己github的账户名替换<br>
-<img alt="新建仓库" src="../images/new_github_pages_repository.png">  </p>
-</li>
-<li>
-<p>github上的仓库创建好以后同时也需要在本地创建个仓库以便维护，github会提供操作方法，命令行上照做即可。</p>
-<blockquote>
-<div class="highlight"><pre><span></span>echo &quot;# signsmile.github.io&quot; &gt;&gt; README.md
-git init
-git add README.md
-git commit -m &quot;first commit&quot;
-git remote add origin &gt; https://github.com/signsmile/signsmile.github.io.git
-git …</pre></div></blockquote></li></ol>	
-<h3 class="blogMeta">By <a href="#">signsmile</a>, Category: <a href="../category/skills.html">skills</a></h3>
-	<a href="../zai-github-pagesshang-da-jian-bo-ke.html">Continue reading …</a>
-      
-      
-	
-    
-    </div><!-- end #blogItem -->
-        
-    
-    <div class="blogItem">
-    
-      <h2><a href="../li-yong-puttysheng-cheng-sshgong-yao-si-yao.html">利用Putty生成SSH公钥私钥</a></h2>
-      <h3>Mon 04 December 2017</h3>
-      
-      <p>装完git，居然没有ssh-keygen命令。无奈只好求助于putty，下载<a href="https://the.earth.li/~sgtatham/putty/latest/w64/putty.zip">putty</a>整个免安装的压缩包，里面有个PUTTYGEN.EXE工具可用于生成SSH的公钥和私钥</p>
-<p><img alt="PUTTYGEN目录" src="../images/PuTTY_Key_Generator_1.png"></p>
-<ol>
-<li>
-<p>打开以后点击Generate<br>
-<img alt="点击Generate" src="../images/PuTTY_Key_Generator_2.png"></p>
-</li>
-<li>
-<p>鼠标在空白区域内划啊划，直到进度条满了（puttygen会采集鼠标划过的位置生成随机数）<br>
-<img alt="生成SSH" src="../images/PuTTY_Key_Generator_3.png"></p>
-</li>
-<li>
-<p>ssh公钥私钥已经生成，可使用Save public key 和 Save private key按钮保存ppk格式的公钥和私钥文件<br>
-<img alt="保存SSH" src="../images/PuTTY_Key_Generator_4.png"></p>
-</li>
-<li>
-<p>如果要产生OpenSSH格式的私钥，只需点击Conversions菜单下面的Export OpenSSH key即可。而对应OpenSSH格式的公钥在窗口界面直接复制即可<br>
-<img alt="导出OpenSSH" src="../images/PuTTY_Key_Generator_5.png"></p>
-</li>
-<li>
-<p>将公钥上传到github文章，将ssh文件重命名为id_rsa的私钥放到C:\Users\username.ssh目录下即可</p>
-</li>
-</ol>
-<p><strong>Tip:windows下直接创建以.开头的文件或者目录会报错，在后面再跟一个.就可以了。比如 <code>.ssh.</code></strong></p>	
-<h3 class="blogMeta">By <a href="#">signsmile</a>, Category: <a href="../category/skills.html">skills</a></h3>
-	<a href="../li-yong-puttysheng-cheng-sshgong-yao-si-yao.html">Continue reading …</a>
-      
-      
-	
-    
-    </div><!-- end #blogItem -->
-        
-    
-    <div class="blogItem">
-    
-      <h2><a href="../pelicanru-men.html">Pelican入门</a></h2>
-      <h3>Sun 03 December 2017</h3>
-      
-      <p>在github搭建博客，刚开始用<a href="https://jekyllrb.com/">Jekyll</a>，然后发现里面的Markdown排版很奇葩，网上说要换Markdown解析器，不想折腾（有时候懒是一种美德）。继而研究<a href="https://hexo.io/">Hexo</a>，环境还没装好呢，让我看到了<a href="http://docs.getpelican.com/en/stable/">Pelican</a>......</p>
-<p>我这不刚好有python环境吗？于是乎......</p>
-<p>首先你要有python环境，然后就很简单了...</p>
-<p>安装Pelican以及Markdown库</p>
-<div class="highlight"><pre><span></span>pip install pelican markdown
-</pre></div>
 
+        <!-- Search -->
+        <section class="box search">
+            <form method="post" action="#">
+                <input type="text" class="text" name="search" placeholder="Search" />
+            </form>
+        </section>
 
-<p>创建你的博客工程目录，当然如果是windows系统的话直接手工创建也行</p>
-<div class="highlight"><pre><span></span>mkdir -p ~/projects/yoursite
-cd ~/projects/yoursite
-</pre></div>
+        <!-- Recent Posts -->
+        <section class="box recent-posts">
+            <header>
+                <h2>Contact Me</h2>
+            </header>
+            <ul>
+                <li><a class="icon fa-github" href="https://github.com/signsmile"> Github</a></li>  
+            </ul>
+        </section>
 
-
-<p>关键语句pelican-quickstart，用来创建母版工程。这时候你需要回答一些问题，根据实际情况填上即可。</p>
-<div class="highlight"><pre><span></span>C:\Users\xxx\Blog_Pelican&gt;pelican-quickstart
-Welcome to pelican-quickstart v3.7.1.
-
-This script will help you …</pre></div>	
-<h3 class="blogMeta">By <a href="#">signsmile</a>, Category: <a href="../category/skills.html">skills</a></h3>
-	<a href="../pelicanru-men.html">Continue reading …</a>
-      
-      
-	
+        <!-- Copyright -->
+        <ul id="copyright">
+            <li>Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.</li>
+        </ul>
+    </div><!-- /#sidebar -->
     
-    </div><!-- end #blogItem -->
-        
-    
-    <div class="blogItem">
-    
-      <h2><a href="../markdownyu-fa-su-cha.html">Markdown语法速查</a></h2>
-      <h3>Sat 02 December 2017</h3>
-      
-      <blockquote>
-<p>word没法git管理，txt没法排版，Markdown正合适</p>
-<p>这里整理了一份Markdown语法速查，作为手边工具</p>
-</blockquote>
-<hr>
-<h1>区块元素</h1>
-<h2>段落和换行</h2>
-<h3>段落</h3>
-<div class="highlight"><pre><span></span>第一行
-中间有空行
-第二行
-</pre></div>
+<div id="content">
+<div class="inner">
+<!-- <h2>Articles by signsmile</h2>
+ -->
 
-
-<blockquote>
-<p>第一行</p>
-<p>第二行</p>
-</blockquote>
-<h3>换行</h3>
-<p>空格+空格+回车</p>
-<blockquote>
-<p>第一行<br>
-第二行</p>
-</blockquote>
-<h2>标题</h2>
-<p><em>Markdown 支持两种标题的语法</em></p>
-<h3>类Setext</h3>
-<div class="highlight"><pre><span></span>最高阶标题
-=
-第二阶标题
--
-</pre></div>
-
-
-<blockquote>
-<h1>最高阶标题</h1>
-<h2>第二阶标题</h2>
-</blockquote>
-<h3>类atx形式</h3>
-<div class="highlight"><pre><span></span># H1
-## H2
-### H3
-#### H4
-##### H5
-###### H6
-</pre></div>
-
-
-<blockquote>
-<h1>H1</h1>
-<h2>H2</h2>
-<h3>H3</h3>
-<h4>H4</h4>
-<h5>H5</h5>
-<h6>H6</h6>
-</blockquote>
-<h2>区块</h2>
-<p><em>用 &gt;，可嵌套</em></p>
-<div class="highlight"><pre><span></span>&gt; 一级区块
-&gt;&gt; 二级区块
-&gt;&gt;&gt; 三级区块
-&gt;
-&gt; *区块内可以直接加其他语法*
-</pre></div>
-
-
-<blockquote>
-<p>一级区块</p>
-<blockquote>
-<p>二级区块</p>
-<blockquote>
-<p>三级区块 …</p></blockquote></blockquote></blockquote>	
-<h3 class="blogMeta">By <a href="#">signsmile</a>, Category: <a href="../category/skills.html">skills</a></h3>
-	<a href="../markdownyu-fa-su-cha.html">Continue reading …</a>
-      
-      
-	
-    
-    </div><!-- end #blogItem -->
-        
-    
-    <div class="blogItem">
-    
-      <h2><a href="../di-yi-pian-wen-zhang.html">第一篇文章</a></h2>
-      <h3>Fri 01 December 2017</h3>
-      
-      <p>这是我用Pelican搭建的第一篇文章</p>	
-<h3 class="blogMeta">By <a href="#">signsmile</a>, Category: <a href="../category/blogs.html">Blogs</a></h3>
-	<a href="../di-yi-pian-wen-zhang.html">Continue reading …</a>
-      
-      
-	
-    
-    </div><!-- end #blogItem -->
-  
-  </div><!-- end #mainContent -->
-
-<div class="clearfloat"></div>
-
-  <div id="footer">
-  
-    <p><a href="http://css4free.com/" title="free CSS web site designs">Free CSS Gallery</a></p>
-    <p>Proudly powered by <a href="http://getpelican.com">pelican</a>, which takes great advantages of <a href="http://python.org">python</a>.
-  </div><!-- end #footer -->
-
-</div><!-- end #container -->
+    <article class="box post post-excerpt">
+        <header> 
+            <h2><a href="../zi-ding-yi-git.html" rel="bookmark" title="Permalink to 自定义Git">自定义Git</a></h2> 
+            <p></p>
+        </header>
+        <div class="info">
+            <span class="date" datetime="2017-12-26T00:00:00+08:00"><span class="month">Dec</span> <span class="day">26</span> <span class="month"> 2017</span></span>
+        </div><!-- /.post-info -->
+        <div class="entry-content"> &nbsp; </div><!-- /.entry-content -->
+    </article>
+    <article class="box post post-excerpt">
+        <header> 
+            <h2><a href="../atomfei-xing-shou-ce-de-fei-xing-shou-ce.html" rel="bookmark" title="Permalink to Atom飞行手册的飞行手册">Atom飞行手册的飞行手册</a></h2> 
+            <p></p>
+        </header>
+        <div class="info">
+            <span class="date" datetime="2017-12-25T00:00:00+08:00"><span class="month">Dec</span> <span class="day">25</span> <span class="month"> 2017</span></span>
+        </div><!-- /.post-info -->
+        <div class="entry-content"> &nbsp; </div><!-- /.entry-content -->
+    </article>
+    <article class="box post post-excerpt">
+        <header> 
+            <h2><a href="../atomde-markdown-writercha-jian.html" rel="bookmark" title="Permalink to Atom的Markdown Writer插件">Atom的Markdown Writer插件</a></h2> 
+            <p></p>
+        </header>
+        <div class="info">
+            <span class="date" datetime="2017-12-19T00:00:00+08:00"><span class="month">Dec</span> <span class="day">19</span> <span class="month"> 2017</span></span>
+        </div><!-- /.post-info -->
+        <div class="entry-content"> &nbsp; </div><!-- /.entry-content -->
+    </article>
+    <article class="box post post-excerpt">
+        <header> 
+            <h2><a href="../pelicanpei-zhi.html" rel="bookmark" title="Permalink to Pelican配置">Pelican配置</a></h2> 
+            <p></p>
+        </header>
+        <div class="info">
+            <span class="date" datetime="2017-12-11T00:00:00+08:00"><span class="month">Dec</span> <span class="day">11</span> <span class="month"> 2017</span></span>
+        </div><!-- /.post-info -->
+        <div class="entry-content"> &nbsp; </div><!-- /.entry-content -->
+    </article>
+    <article class="box post post-excerpt">
+        <header> 
+            <h2><a href="../pelicanzi-dong-fa-bu-dao-github.html" rel="bookmark" title="Permalink to Pelican自动发布到github">Pelican自动发布到github</a></h2> 
+            <p></p>
+        </header>
+        <div class="info">
+            <span class="date" datetime="2017-12-09T00:00:00+08:00"><span class="month">Dec</span> <span class="day">09</span> <span class="month"> 2017</span></span>
+        </div><!-- /.post-info -->
+        <div class="entry-content"> &nbsp; </div><!-- /.entry-content -->
+    </article>
+    <article class="box post post-excerpt">
+        <header> 
+            <h2><a href="../pelicanxie-zuo-zi-shi.html" rel="bookmark" title="Permalink to Pelican写作姿势">Pelican写作姿势</a></h2> 
+            <p></p>
+        </header>
+        <div class="info">
+            <span class="date" datetime="2017-12-06T00:00:00+08:00"><span class="month">Dec</span> <span class="day">06</span> <span class="month"> 2017</span></span>
+        </div><!-- /.post-info -->
+        <div class="entry-content"> &nbsp; </div><!-- /.entry-content -->
+    </article>
+    <article class="box post post-excerpt">
+        <header> 
+            <h2><a href="../zai-github-pagesshang-da-jian-bo-ke.html" rel="bookmark" title="Permalink to 在github pages上搭建博客">在github pages上搭建博客</a></h2> 
+            <p></p>
+        </header>
+        <div class="info">
+            <span class="date" datetime="2017-12-05T00:00:00+08:00"><span class="month">Dec</span> <span class="day">05</span> <span class="month"> 2017</span></span>
+        </div><!-- /.post-info -->
+        <div class="entry-content"> &nbsp; </div><!-- /.entry-content -->
+    </article>
+    <article class="box post post-excerpt">
+        <header> 
+            <h2><a href="../li-yong-puttysheng-cheng-sshgong-yao-si-yao.html" rel="bookmark" title="Permalink to 利用Putty生成SSH公钥私钥">利用Putty生成SSH公钥私钥</a></h2> 
+            <p></p>
+        </header>
+        <div class="info">
+            <span class="date" datetime="2017-12-04T00:00:00+08:00"><span class="month">Dec</span> <span class="day">04</span> <span class="month"> 2017</span></span>
+        </div><!-- /.post-info -->
+        <div class="entry-content"> &nbsp; </div><!-- /.entry-content -->
+    </article>
+    <article class="box post post-excerpt">
+        <header> 
+            <h2><a href="../pelicanru-men.html" rel="bookmark" title="Permalink to Pelican入门">Pelican入门</a></h2> 
+            <p></p>
+        </header>
+        <div class="info">
+            <span class="date" datetime="2017-12-03T00:00:00+08:00"><span class="month">Dec</span> <span class="day">03</span> <span class="month"> 2017</span></span>
+        </div><!-- /.post-info -->
+        <div class="entry-content"> &nbsp; </div><!-- /.entry-content -->
+    </article>
+    <article class="box post post-excerpt">
+        <header> 
+            <h2><a href="../markdownyu-fa-su-cha.html" rel="bookmark" title="Permalink to Markdown语法速查">Markdown语法速查</a></h2> 
+            <p></p>
+        </header>
+        <div class="info">
+            <span class="date" datetime="2017-12-02T00:00:00+08:00"><span class="month">Dec</span> <span class="day">02</span> <span class="month"> 2017</span></span>
+        </div><!-- /.post-info -->
+        <div class="entry-content"> &nbsp; </div><!-- /.entry-content -->
+    </article>
+<!-- /#posts-list -->
+<p class="paginator">
+    Page 1 / 2
+        <a class="button next"  href="../author/signsmile2.html">Older Entries</a>
+</p>
+</div>
+</div><!-- /#content -->
+<!-- /#contentinfo -->
 </body>
 </html>

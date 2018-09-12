@@ -1,99 +1,92 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-
+<!DOCTYPE html>
+<html lang="chinese (simplified)">
 <head>
+      <title>SIGNSMILE DRONE</title>
+    <meta charset="utf-8" />
 
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  
-  <title>Pelican入门</title>
-<link href="./theme/css/style.css" rel="stylesheet" type="text/css" media="screen" />
-<link href="./" type="application/atom+xml" rel="alternate" title="招牌式的微笑 ATOM Feed" />
-  
-  <!--[if IE]>
-  <style type="text/css"> 
-  .twoColFixRtHdr #mainContent { zoom: 1; }
-  </style>
-  <![endif]-->
 
+    <meta name="tags" content="pelican" />
+
+    <link rel="stylesheet" href="/theme/css/main.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--[if lte IE 8]><script src="/theme/js/ie/html5shiv.js"></script><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="/theme/css/ie8.css" /><![endif]-->
 </head>
 
 <body>
-
-<div id="container">
-
-  <div id="header">
-  <h1><a href="./index.html">招牌式的微笑</h1>
-  
-  </div><!-- end #header -->
-  
-  <div id="topMenu">
-  
-    <ul>
-    	<li><a href="./index.html">Home</a></li>
-        <li>&ndash;</li>
-        <li><a href="./archives.html">Archives</a></li>
+    <!-- <header id="banner" class="body"> -->
+        <!-- <h1><a href="./">SIGNSMILE DRONE <strong>一个程序员，汽车电子从业人员，无人机爱好者所思所想</strong></a></h1> -->
+    <!--</header>-- /#banner -->
+    
+    <!-- Sidebar -->
+    <div id="sidebar">
+        <!-- Logo -->
+        <h1 id="logo"><a href="/">SIGNSMILE DRONE</a></h1>
+        <!-- Text -->
+        <section class="box text-style1">
+            <div class="inner">
+                <p>
+                    <strong>生命不息，折腾不止:</strong><br />一个程序员，汽车电子从业人员，无人机爱好者所思所想
+                </p>
+            </div>
+        </section>
+        <!-- Nav -->
+        <nav id="nav">
+            <ul>
+                <li><a href="./archives.html">文章列表</a></li>
+            </ul>
+        </nav>
         
-    </ul>
-  
-  </div><!-- end #topMenu -->
-
-  <div id="sidebar">
-    <ul>
-	<li>
-	    <h3>Pages</h3>
-	    <ul>
-	    </ul>
-	</li>
-	<li>
+        <div>
             <h3>Categories</h3>
             <ul>
-		     <li ><a href="./category/blogs.html">Blogs</a></li>
-		     <li class="active"><a href="./category/skills.html">skills</a></li>
-	    </ul>
-	</li>
-	<li>
-		<h3>Blogroll</h3>
-		<ul>
-                    <li><a href="http://getpelican.com/">Pelican</a></li>
-                    <li><a href="http://python.org/">Python.org</a></li>
-                    <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
-                    <li><a href="#">You can modify those links in your config file</a></li>
-		</ul>
-	</li>
-        <li>
-                <h3>Social</h3>
-                <ul>
-                    <li><a href="#">You can add links in your config file</a></li>
-                    <li><a href="#">Another social link</a></li>
-                </ul>
-        </li><!-- /.social -->
-        <li>
-            <h3>Tags</h3>
-            <ul>
-                    <li><a href="./tag/pelican.html">Pelican</a></li>
-                    <li><a href="./tag/markdown.html">Markdown</a></li>
-                    <li><a href="./tag/github.html">github</a></li>
-                    <li><a href="./tag/hook.html">Hook</a></li>
-                    <li><a href="./tag/git.html">Git</a></li>
-                    <li><a href="./tag/ssh.html">SSH</a></li>
-                    <li><a href="./tag/putty.html">Putty</a></li>
-                    <li><a href="./tag/atom.html">Atom</a></li>
+                 <li ><a href="./category/blogs.html">Blogs</a></li>
+                 <li class="active"><a href="./category/skills.html">skills</a></li>
             </ul>
-        </li>
-    </ul>
-  </div><!-- end #sidebar -->
+        </div>
 
-  <div id="mainContent">
-  	
- 
+        <!-- Search -->
+        <section class="box search">
+            <form method="post" action="#">
+                <input type="text" class="text" name="search" placeholder="Search" />
+            </form>
+        </section>
 
+        <!-- Recent Posts -->
+        <section class="box recent-posts">
+            <header>
+                <h2>Contact Me</h2>
+            </header>
+            <ul>
+                <li><a class="icon fa-github" href="https://github.com/signsmile"> Github</a></li>  
+            </ul>
+        </section>
 
-<div class="blogItem">
+        <!-- Copyright -->
+        <ul id="copyright">
+            <li>Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.</li>
+        </ul>
+    </div><!-- /#sidebar -->
     
-      <h2><a href="./pelicanru-men.html">Pelican入门</a></h2>
-      <h3>Sun 03 December 2017</h3>
-      
-  <p>在github搭建博客，刚开始用<a href="https://jekyllrb.com/">Jekyll</a>，然后发现里面的Markdown排版很奇葩，网上说要换Markdown解析器，不想折腾（有时候懒是一种美德）。继而研究<a href="https://hexo.io/">Hexo</a>，环境还没装好呢，让我看到了<a href="http://docs.getpelican.com/en/stable/">Pelican</a>......</p>
+<div id="content">
+<div class="inner">
+  <article class="box post post-excerpt">
+                <header> 
+                <h2><a href="./pelicanru-men.html" rel="bookmark" title="Permalink to Pelican入门">Pelican入门</a></h2> 
+                <p></p>
+                </header>
+                <div class="info">
+                    <span class="date" datetime="2017-12-03T00:00:00+08:00"><span class="month">Dec</span> <span class="day">03</span> <span class="month"> 2017</span></span>
+                    <ul class="stats">
+                                    <li><a href="mailto:?Subject=Pelican入门&Body=I%20saw%20this%20and%20thought%20of%20you!%20 ./pelicanru-men.html" class="icon fa-envelope">&nbsp;</a></li>
+                                    <li><a href="http://reddit.com/submit?url=./pelicanru-men.html&title=#Pelican入门"" class="icon fa-reddit">&nbsp;</a></li>
+                                    <li><a href="https://twitter.com/share?url=./pelicanru-men.html&text=&hashtags=GnotC" class="icon fa-twitter">&nbsp;</a></li>
+                                    <li><a href="https://www.facebook.com/sharer.php?u=./pelicanru-men.html" class="icon fa-facebook">&nbsp;</a></li>
+                                </ul>
+                </div><!-- /.post-info -->
+                <div class="entry-content"> &nbsp; </div><!-- /.entry-content -->
+        </article>
+    <p>在github搭建博客，刚开始用<a href="https://jekyllrb.com/">Jekyll</a>，然后发现里面的Markdown排版很奇葩，网上说要换Markdown解析器，不想折腾（有时候懒是一种美德）。继而研究<a href="https://hexo.io/">Hexo</a>，环境还没装好呢，让我看到了<a href="http://docs.getpelican.com/en/stable/">Pelican</a>......</p>
 <p>我这不刚好有python环境吗？于是乎......</p>
 <p>首先你要有python环境，然后就很简单了...</p>
 <p>安装Pelican以及Markdown库</p>
@@ -164,25 +157,25 @@ python -m pelican.server
 
 <p>效果如下图<br>
 <img alt="首页效果" src="./images/first_article.png" title="首页效果"></p>
-<p>至此，基于Pelican的博客系统搭建成功了，以后只要在文章更新之后执行一遍<code>pelican content</code>命令即可。而生成的output目录即可用来上传到github空间来向外界展示你的博客了。</p>	
-      
-      <h3 class="blogMeta">By <a href="#">signsmile</a>, Category: <a href="./category/skills.html">skills</a></h3>
-<h3 class="blogMeta">Tags: <span><a href="./tag/pelican.html">pelican</a> / </span>
-</h3>    
-    </div><!-- end #blogItem -->
-				
-				<!-- end #content -->
-  
-  </div><!-- end #mainContent -->
+<p>至此，基于Pelican的博客系统搭建成功了，以后只要在文章更新之后执行一遍<code>pelican content</code>命令即可。而生成的output目录即可用来上传到github空间来向外界展示你的博客了。</p>
+  </div><!-- /.entry-content -->
 
-<div class="clearfloat"></div>
+  <!-- Comments -->
+  <div class="comments">
+      <p>There are no comments yet.<p>
+  </div>
 
-  <div id="footer">
-  
-    <p><a href="http://css4free.com/" title="free CSS web site designs">Free CSS Gallery</a></p>
-    <p>Proudly powered by <a href="http://getpelican.com">pelican</a>, which takes great advantages of <a href="http://python.org">python</a>.
-  </div><!-- end #footer -->
-
-</div><!-- end #container -->
+  <!-- Pagination -->
+  <div class="pagination">
+      <a class="button previous" href="./markdownyu-fa-su-cha.html">
+        Markdown语法速查
+      </a>
+      <a class="button next" href="./li-yong-puttysheng-cheng-sshgong-yao-si-yao.html">
+        利用Putty生成SSH公钥私钥
+      </a>
+  </div>
+</div>
+</div>
+<!-- /#contentinfo -->
 </body>
 </html>
