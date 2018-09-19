@@ -40,7 +40,7 @@ FILENAME_METADATA = '(?P<date>\d{4}-\d{2}-\d{2})'
 # Uncomment following line if you want document-relative URLs when developing
 RELATIVE_URLS = True
 
-STATIC_PATHS = ['images', 'extra/CNAME']
+STATIC_PATHS = ['images', 'drone/images', 'extra/CNAME']
 EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'},}
 THEME = 'themes\signsmile-theme'
 #TEMPLATE_PAGES = {'pages/jinja2_template.html': 'jinja2_template.html'}
