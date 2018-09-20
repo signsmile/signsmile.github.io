@@ -49,3 +49,4 @@ PLUGIN_PATHS = ['./plugins']
 PLUGINS = ['pelican_comment_system', 'neighbors']
 
 PELICAN_COMMENT_SYSTEM = True
+PELICAN_COMMENT_SYSTEM_IDENTICON_DATA = ('author',)
