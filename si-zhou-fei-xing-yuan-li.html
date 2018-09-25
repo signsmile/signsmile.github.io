@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="chinese (simplified)">
+<head>
+      <title>SIGNSMILE DRONE</title>
+    <meta charset="utf-8" />
+
+
+    <meta name="tags" content="Drone" />
+
+    <link rel="stylesheet" href="/theme/css/main.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--[if lte IE 8]><script src="/theme/js/ie/html5shiv.js"></script><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="/theme/css/ie8.css" /><![endif]-->
+</head>
+
+<body>
+    <!-- <header id="banner" class="body"> -->
+        <!-- <h1><a href="./">SIGNSMILE DRONE <strong>一个程序员，汽车电子从业人员，无人机爱好者所思所想</strong></a></h1> -->
+    <!--</header>-- /#banner -->
+    
+    <!-- Sidebar -->
+    <div id="sidebar">
+        <!-- Logo -->
+        <h1 id="logo"><a href="/">SIGNSMILE DRONE</a></h1>
+        <!-- Text -->
+        <section class="box text-style1">
+            <div class="inner">
+                <p>
+                    <strong>生命不息，折腾不止:</strong><br />一个程序员，汽车电子从业人员，无人机爱好者所思所想
+                </p>
+            </div>
+        </section>
+        <!-- Nav -->
+        <nav id="nav">
+            <ul>
+                <li><a href="./archives.html">文章列表</a></li>
+            </ul>
+        </nav>
+        
+        <div>
+            <h3>Categories</h3>
+            <ul>
+                 <li ><a href="./category/blogs.html">Blogs</a></li>
+                 <li class="active"><a href="./category/drone.html">drone</a></li>
+                 <li ><a href="./category/skills.html">skills</a></li>
+            </ul>
+        </div>
+
+        <!-- Search -->
+        <section class="box search">
+            <form method="post" action="#">
+                <input type="text" class="text" name="search" placeholder="Search" />
+            </form>
+        </section>
+
+        <!-- Recent Posts -->
+        <section class="box recent-posts">
+            <header>
+                <h2>Contact Me</h2>
+            </header>
+            <ul>
+                <li><a class="icon fa-github" href="https://github.com/signsmile"> Github</a></li>  
+            </ul>
+        </section>
+
+        <!-- Copyright -->
+        <ul id="copyright">
+            <li>Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.</li>
+        </ul>
+    </div><!-- /#sidebar -->
+    
+<div id="content">
+<div class="inner">
+  <article class="box post post-excerpt">
+                <header> 
+                <h2><a href="./si-zhou-fei-xing-yuan-li.html" rel="bookmark" title="Permalink to 四轴飞行原理">四轴飞行原理</a></h2> 
+                <p></p>
+                </header>
+                <div class="info">
+                    <span class="date" datetime="2018-09-25T00:00:00+08:00"><span class="month">Sep</span> <span class="day">25</span> <span class="month"> 2018</span></span>
+                    <ul class="stats">
+                                    <li><a href="mailto:?Subject=四轴飞行原理&Body=I%20saw%20this%20and%20thought%20of%20you!%20 ./si-zhou-fei-xing-yuan-li.html" class="icon fa-envelope">&nbsp;</a></li>
+                                    <li><a href="http://reddit.com/submit?url=./si-zhou-fei-xing-yuan-li.html&title=#四轴飞行原理"" class="icon fa-reddit">&nbsp;</a></li>
+                                    <li><a href="https://twitter.com/share?url=./si-zhou-fei-xing-yuan-li.html&text=&hashtags=GnotC" class="icon fa-twitter">&nbsp;</a></li>
+                                    <li><a href="https://www.facebook.com/sharer.php?u=./si-zhou-fei-xing-yuan-li.html" class="icon fa-facebook">&nbsp;</a></li>
+                                </ul>
+                </div><!-- /.post-info -->
+                <div class="entry-content"> &nbsp; </div><!-- /.entry-content -->
+        </article>
+    <div class="highlight"><pre><span></span>你知道四轴的四个电机转的方向是不一样的吗？
+</pre></div>
+
+
+<hr>
+<h2>基本结构</h2>
+<p>四轴利用其复杂的算法控制来弥补其简单的机械结构。</p>
+<p>其采用四个旋翼作为飞行的直接动力源，旋翼对称分布在机体的四个方向，一般装成“X”型的或者“十”型（参考配图，来自PX4官网）。</p>
+<p><img alt="PIX飞控的X模式" src="./drone/images/2018/09/Quandrotor_x.jpg"> <img alt="PIX飞控的十模式" src="./drone/images/2018/09/Quadrotor_+.jpg"></p>
+<p>四个旋翼处于同一高度平面，且四个旋翼轴距几何中心的距离相等，其中一个对角逆时针旋转，另外一个对角顺时针旋转，支架中间空间安放飞控、电调和一些外部设备。</p>
+<h2>运动原理</h2>
+<p><img alt="四轴动作" src="./drone/images/2018/09/quadrotor-movement.jpg"></p>
+<p>四轴异常灵活，它能够实现悬停，垂直运动、俯仰运动、滚转运动、偏航运动。下面以PX4的X模式为列子进行说明，图中X轴所指为飞机前方，Y轴所指方向为飞机左侧。</p>
+<p><img alt="PX4的X模式" src="./drone/images/2018/09/Quadcopter-theory.svg"></p>
+<h3>悬停</h3>
+<p>每个电机带着螺旋桨转动的时候会产生一个向上的提升力以及转动方向相反的反扭矩力，</p>
+<p>当两个对角轴产生的反扭矩力（电机1+2 VS 电机3+4）相同时能够相互抵消，这样就能保证航向的稳定。</p>
+<p>而在此同时，四个电机产生的向上提升力的总和刚好能抵消飞机本身重力的时候，飞机就能悬停在空中了。</p>
+<p>当然在实际场景中，由于周边环境的影响，飞控会实时调整来达到这种平衡状态。</p>
+<h3>垂直运动</h3>
+<p>知道了悬停的原理后，垂直运动就很好理解了。</p>
+<p>继续保证反转扭矩相互抵消，增加总提升力使其大于重力，就能垂直上升</p>
+<p><img alt="上升" src="./drone/images/2018/09/Quadcopter-theory-up.svg"></p>
+<p>而减少总提升力使其小于重力，就能垂直下降。</p>
+<p><img alt="下降" src="./drone/images/2018/09/Quadcopter-theory-down.svg"></p>
+<h3>偏航运动</h3>
+<p>偏航运动和垂直运动类似，只不过偏航的时候是保持总提升力不变，而调整反转扭矩。</p>
+<p>保持总提升力与重力相等</p>
+<p>当顺时针反转扭矩大于逆时针反转扭矩时（反转扭矩1+2 &gt; 反转扭矩3+4），飞机整体会向顺时针偏航。</p>
+<p><img alt="右转" src="./drone/images/2018/09/Quadcopter-theory-yaw-right.svg"></p>
+<p>而当顺时针反转扭矩小于逆时针反转扭矩时（反转扭矩3+4 &gt; 反转扭矩1+2），飞机整体会向逆时针偏航.</p>
+<p><img alt="左转" src="./drone/images/2018/09/Quadcopter-theory-yaw-left.svg"></p>
+<h3>俯仰运动（前后运动）</h3>
+<p>同时减小1和3电机转速，增大2和4电机转速，飞机就会前俯。前俯的情况下总的提升力不是垂直向上，而是随着飞机的前俯而前俯。这样就会产生一个水平方向向前的分力。保持这种姿势，飞机就会在这个水平力的作用下向前移动。</p>
+<p><img alt="前俯" src="./drone/images/2018/09/Quadcopter-theory-pitch-down.svg"></p>
+<p>同理，增大2和4电机转速，减小1和3电机转速，飞机就会后仰。后仰的情况下总的提升力也后仰，产生一个水平方向向后的分力。保持这种姿势，飞机就会在这个水平力的作用下向后移动。</p>
+<p><img alt="后仰" src="./drone/images/2018/09/Quadcopter-theory-pitch-up.svg"></p>
+<h3>滚转运动（侧向运动）</h3>
+<p>原理跟俯仰运动类似。</p>
+<p>增加电机1和4的转速，减小电机2和3的转速，飞机会往右滚转。保持右倾姿势，飞机就会向右侧移动。</p>
+<p><img alt="右翻" src="./drone/images/2018/09/Quadcopter-theory-roll-right.svg"></p>
+<p>增加电机2和3的转速，减小电机1和4的转速，飞机会往左滚转。保持左倾姿势，飞机会就向左侧移动。</p>
+<p><img alt="左翻" src="./drone/images/2018/09/Quadcopter-theory-roll-left.svg"></p>
+<h2>控制方法</h2>
+<p>那么问题来了，四轴的四个电机之间是如何相互配合进行微妙的动作变化来实现我们想要的运动的呢？</p>
+<p>这种问题交给飞行员来手动控制似乎很难，但是如果交给计算机程序自动控制的话，就会相对简单一些。</p>
+<p>在四轴上装有3轴陀螺仪和3轴加速度传感器组成的惯性导航模块，飞控可以根据这些传感器返回的数据知道飞行器当前的姿态、加速度、角速度等。飞控通过算法计算评估当前姿态与目标姿态的偏差，再通过这些偏差来修正四个电机的动作。</p>
+<p>也就是说，飞行员只要将他想要的四轴整体动作告诉飞控，飞控会结合传感器信息将飞行员命令分解到四个电机。</p>
+<p><img alt="飞控栈" src="./drone/images/2018/09/PX4_High-Level_Flight-Stack.svg"></p>
+    <!-- Comments -->
+    	<style>
+#pcs-comment-form input,
+#pcs-comment-form textarea {
+	width: 100%;
+}
+#pcs-comment-form-display-replyto {
+	border: solid 1px black;
+	padding: 2px;
+}
+#pcs-comment-form-display-replyto p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+#pcs-comments ul {
+	list-style: none;
+}
+#pcs-comments .comment-left {
+	display: table-cell;
+	padding-right: 10px;
+}
+#pcs-comments .comment-body {
+	display: table-cell;
+	vertical-align: top;
+	width: 100%;
+}
+</style>
+
+	<section id="pcs-comments">
+	<header>
+		<h2>Comments</h2>
+		<hr/>
+	</header>
+		<p>There are no comments yet.</p>
+	<section>
+	<form id="pcs-comment-form" action="#">
+		<legend>Add a Comment</legend>
+		<input type="hidden" id="pcs-comment-form-input-replyto">
+		<fieldset>
+			<label for="pcs-comment-form-input-name">Name</label>
+			<input  id="pcs-comment-form-input-name" type="text" placeholder="Enter your name or nickname" />
+		</fieldset>
+		<fieldset>
+			<label for="pcs-comment-form-input-website">Website</label>
+			<input  id="pcs-comment-form-input-website" type="text" placeholder="Enter your website (optional)" />
+		</fieldset>
+		<fieldset>
+			<label   for="pcs-comment-form-input-textarea">Your Comment</label>
+			<textarea id="pcs-comment-form-input-textarea" rows="5" style="resize:vertical;" placeholder="Your comment"></textarea>
+			<p>You can use the <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a> syntax to format your comment.</p>
+			<div style="display: none; " id="pcs-comment-form-display-replyto"></div>
+		</fieldset>
+
+		<button type="submit"
+				id="pcs-comment-form-button-submit"
+				>Post via email</button>
+
+			<a href="./feeds\comment.si-zhou-fei-xing-yuan-li.atom.xml">
+				Comment Atom Feed
+			</a>
+	</form>
+</section>
+
+</section>
+
+			<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="./theme/js/comments.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			CommentSystem.email_user   = "signsmile";
+			CommentSystem.email_domain = "outlook.com";
+			CommentSystem.display_replyto_html = function(comment_content, article_slug, author) { 
+				return ''
+					+ '<button style="float:right;" onclick="CommentSystem.cancelReply(); return false;" title="Cancel the reply">'
+					+ 	'×'
+					+ '</button>'
+					+ '<p>This comment will be posted as a reply to \'<a title="'+comment_content+'" href="#comment-'+article_slug+'">'+author+'</a>\'</p>';
+			};
+
+			$('#pcs-comment-form').on("submit",
+				function( event )
+				{
+					event.preventDefault();
+					$(location).attr('href', CommentSystem.getMailtoLink("si-zhou-fei-xing-yuan-li"));
+				}
+			);
+		});
+	</script>
+
+
+  </div><!-- /.entry-content -->
+
+
+  <!-- Pagination -->
+  <div class="pagination">
+      <a class="button previous" href="./zhun-bei-hao-ru-keng-wu-ren-ji-liao-ma.html">
+        准备好入坑无人机了吗？
+      </a>
+  </div>
+</div>
+</div>
+<!-- /#contentinfo -->
+</body>
+</html>
