@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="chinese (simplified)">
+<head>
+      <title>SIGNSMILE DRONE</title>
+    <meta charset="utf-8" />
+
+
+    <meta name="tags" content="Drone" />
+
+    <link rel="stylesheet" href="/theme/css/main.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--[if lte IE 8]><script src="/theme/js/ie/html5shiv.js"></script><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="/theme/css/ie8.css" /><![endif]-->
+</head>
+
+<body>
+    <!-- <header id="banner" class="body"> -->
+        <!-- <h1><a href="./">SIGNSMILE DRONE <strong>一个程序员，汽车电子从业人员，无人机爱好者所思所想</strong></a></h1> -->
+    <!--</header>-- /#banner -->
+    
+    <!-- Sidebar -->
+    <div id="sidebar">
+        <!-- Logo -->
+        <h1 id="logo"><a href="/">SIGNSMILE DRONE</a></h1>
+        <!-- Text -->
+        <section class="box text-style1">
+            <div class="inner">
+                <p>
+                    <strong>生命不息，折腾不止:</strong><br />一个程序员，汽车电子从业人员，无人机爱好者所思所想
+                </p>
+            </div>
+        </section>
+        <!-- Nav -->
+        <nav id="nav">
+            <ul>
+                <li><a href="./archives.html">文章列表</a></li>
+            </ul>
+        </nav>
+        
+        <div>
+            <h3>Categories</h3>
+            <ul>
+                 <li ><a href="./category/blogs.html">Blogs</a></li>
+                 <li class="active"><a href="./category/drone.html">drone</a></li>
+                 <li ><a href="./category/skills.html">skills</a></li>
+            </ul>
+        </div>
+
+        <!-- Search -->
+        <section class="box search">
+            <form method="post" action="#">
+                <input type="text" class="text" name="search" placeholder="Search" />
+            </form>
+        </section>
+
+        <!-- Recent Posts -->
+        <section class="box recent-posts">
+            <header>
+                <h2>Contact Me</h2>
+            </header>
+            <ul>
+                <li><a class="icon fa-github" href="https://github.com/signsmile"> Github</a></li>  
+            </ul>
+        </section>
+
+        <!-- Copyright -->
+        <ul id="copyright">
+            <li>Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.</li>
+        </ul>
+    </div><!-- /#sidebar -->
+    
+<div id="content">
+<div class="inner">
+  <article class="box post post-excerpt">
+                <header> 
+                <h2><a href="./guan-xing-dao-hang-xi-tong.html" rel="bookmark" title="Permalink to 惯性导航系统">惯性导航系统</a></h2> 
+                <p></p>
+                </header>
+                <div class="info">
+                    <span class="date" datetime="2018-11-23T00:00:00+08:00"><span class="month">Nov</span> <span class="day">23</span> <span class="month"> 2018</span></span>
+                    <ul class="stats">
+                                    <li><a href="mailto:?Subject=惯性导航系统&Body=I%20saw%20this%20and%20thought%20of%20you!%20 ./guan-xing-dao-hang-xi-tong.html" class="icon fa-envelope">&nbsp;</a></li>
+                                    <li><a href="http://reddit.com/submit?url=./guan-xing-dao-hang-xi-tong.html&title=#惯性导航系统"" class="icon fa-reddit">&nbsp;</a></li>
+                                    <li><a href="https://twitter.com/share?url=./guan-xing-dao-hang-xi-tong.html&text=&hashtags=GnotC" class="icon fa-twitter">&nbsp;</a></li>
+                                    <li><a href="https://www.facebook.com/sharer.php?u=./guan-xing-dao-hang-xi-tong.html" class="icon fa-facebook">&nbsp;</a></li>
+                                </ul>
+                </div><!-- /.post-info -->
+                <div class="entry-content"> &nbsp; </div><!-- /.entry-content -->
+        </article>
+    <div class="highlight"><pre><span></span>什么是惯性导航系统？惯性导航系统由哪些传感器组成？惯性导航系统的原理是什么？
+</pre></div>
+
+
+<hr>
+<p>先来看个度娘给定义：</p>
+<p><em>惯性导航系统（INS，Inertial Navigation  System）也称作惯性参考系统，是一种不依赖于外部信息、也不向外部辐射能量（如无线电导航那样）的自主式导航系统。其工作环境不仅包括空中、地面，还可以在水下。惯性导航的基本工作原理是以牛顿力学定律为基础，通过测量载体在惯性参考系的加速度，将它对时间进行积分，且把它变换到导航坐标系中，就能够得到在导航坐标系中的速度、偏航角和位置等信息。</em></p>
+<p><em>惯性导航系统属于推算导航方式，即从一已知点的位置根据连续测得的运动体航向角和速度推算出其下一点的位置，因而可连续测出运动体的当前位置。惯性导航系统中的陀螺仪用来形成一个导航坐标系，使加速度计的测量轴稳定在该坐标系中，并给出航向和姿态角；加速度计用来测量运动体的加速度，经过对时间的一次积分得到速度，速度再经过对时间的一次积分即可得到位移。</em></p>
+<p>从组成上来看，它由一个3轴陀螺仪和一个3轴加速度传感器组成。高端的飞控会做一份冗余，以提高测量精度。</p>
+<ul>
+<li>陀螺仪</li>
+</ul>
+<p>陀螺仪即角速度传感器，注意，这里说的是角速度而不是角度，角度是需要把角速度乘以时间算出来的。</p>
+<p>陀螺仪说白了就是一个正在旋转的陀螺，跟我们小时候在地上用绳子打着转的陀螺一样一样的。陀螺仪测量角速度用到了陀螺的两个特性，定轴性以及进动性。</p>
+<ul>
+<li>定轴性：当陀螺转子以高速旋转时，在没有任何外力矩作用在陀螺仪上时，陀螺仪的自转轴在惯性空间中的指向保持稳定不变，即指向一个固定的方向；同时反抗任何改变转子轴向的力量。这种物理现象称为陀螺仪的定轴性或稳定性。</li>
+<li>
+<p>进动性：转子高速旋转时，若外力矩作用于外环轴，陀螺仪将绕内环轴转动；若外力矩作用于内环轴，陀螺仪将绕外环轴转动。其转动角速度方向与外力矩作用方向互相垂直。这个比较抽象，要结合图看下才能理解，通俗点说，就是你推着自行车往前，自行车的论坛的轴和你的力是垂直的。</p>
+<p><img alt="进动方向" src="./drone/images/2018/11/2018-11-23_gyro.jpg"></p>
+<p>进动角速度的方向取决于动量矩H的方向(与转子自转角速度矢量的方向一致)和外力矩M的方向，而且是自转角速度矢量H以最短的路径追赶外力矩M。
+进动角速度的大小取决于转子动量矩H的大小和外力矩M的大小,其计算式为进动角速度ω=M/H。</p>
+</li>
+<li>
+<p>加速度传感器</p>
+</li>
+</ul>
+<p>多数加速度传感器是根据压电效应的原理来工作的。所谓的压电效应就是 "对于不存在对称中心的异极晶体加在晶体上的外力除了使晶体发生形变以外，还将改变晶体的极化状态，在晶体内部建立电场，这种由于机械力作用使介质发生极化的现象称为正压电效应 "。说人话，就是东西压在板子上，板子受到的力能通过一些手段测出来而已。</p>
+<p><img alt="acce" src="./drone/images/2018/11/2018-11-23_acc.png"></p>
+<p>脑补一下，如果一个盒子的六个面都是用这种板子做的，然后里面放着一个球，然后球在每个面上的压力都能轻而易举的计算出来，用下初中的知识F = ma，也就是伟大的牛顿第一定律，空间上的加速度也就求出来了。</p>
+<p>知道了角速度，线加速度，再加个时间积分，推算运动轨迹就不成问题了。</p>
+<p>另外网上经常能看到一个概念就是<strong>倾角传感器</strong>，其实这个不属于飞控的传感器，不要跟<strong>陀螺仪</strong>搞混了，飞控上面的角度变化是由陀螺仪上测出来的角速度积分得来的。倾角传感器侧重于静态测量，而陀螺仪侧重于动态测量，这是它们最大的区别。</p>
+<p>其实惯性导航系统的应用场景还是非常丰富的，除了四轴的飞控以外，像火箭的导航系统，游戏手柄，手机上的摇一摇功能，手环的计步器功能都用到了它。</p>
+    <!-- Comments -->
+    	<style>
+#pcs-comment-form input,
+#pcs-comment-form textarea {
+	width: 100%;
+}
+#pcs-comment-form-display-replyto {
+	border: solid 1px black;
+	padding: 2px;
+}
+#pcs-comment-form-display-replyto p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+#pcs-comments ul {
+	list-style: none;
+}
+#pcs-comments .comment-left {
+	display: table-cell;
+	padding-right: 10px;
+}
+#pcs-comments .comment-body {
+	display: table-cell;
+	vertical-align: top;
+	width: 100%;
+}
+</style>
+
+	<section id="pcs-comments">
+	<header>
+		<h2>Comments</h2>
+		<hr/>
+	</header>
+		<p>There are no comments yet.</p>
+	<section>
+	<form id="pcs-comment-form" action="#">
+		<legend>Add a Comment</legend>
+		<input type="hidden" id="pcs-comment-form-input-replyto">
+		<fieldset>
+			<label for="pcs-comment-form-input-name">Name</label>
+			<input  id="pcs-comment-form-input-name" type="text" placeholder="Enter your name or nickname" />
+		</fieldset>
+		<fieldset>
+			<label for="pcs-comment-form-input-website">Website</label>
+			<input  id="pcs-comment-form-input-website" type="text" placeholder="Enter your website (optional)" />
+		</fieldset>
+		<fieldset>
+			<label   for="pcs-comment-form-input-textarea">Your Comment</label>
+			<textarea id="pcs-comment-form-input-textarea" rows="5" style="resize:vertical;" placeholder="Your comment"></textarea>
+			<p>You can use the <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a> syntax to format your comment.</p>
+			<div style="display: none; " id="pcs-comment-form-display-replyto"></div>
+		</fieldset>
+
+		<button type="submit"
+				id="pcs-comment-form-button-submit"
+				>Post via email</button>
+
+			<a href="./feeds\comment.guan-xing-dao-hang-xi-tong.atom.xml">
+				Comment Atom Feed
+			</a>
+	</form>
+</section>
+
+</section>
+
+			<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="./theme/js/comments.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			CommentSystem.email_user   = "signsmile";
+			CommentSystem.email_domain = "outlook.com";
+			CommentSystem.display_replyto_html = function(comment_content, article_slug, author) { 
+				return ''
+					+ '<button style="float:right;" onclick="CommentSystem.cancelReply(); return false;" title="Cancel the reply">'
+					+ 	'×'
+					+ '</button>'
+					+ '<p>This comment will be posted as a reply to \'<a title="'+comment_content+'" href="#comment-'+article_slug+'">'+author+'</a>\'</p>';
+			};
+
+			$('#pcs-comment-form').on("submit",
+				function( event )
+				{
+					event.preventDefault();
+					$(location).attr('href', CommentSystem.getMailtoLink("guan-xing-dao-hang-xi-tong"));
+				}
+			);
+		});
+	</script>
+
+
+  </div><!-- /.entry-content -->
+
+
+  <!-- Pagination -->
+  <div class="pagination">
+      <a class="button previous" href="./si-zhou-pei-jian-fan-wai.html">
+        四轴配件番外
+      </a>
+  </div>
+</div>
+</div>
+<!-- /#contentinfo -->
+</body>
+</html>
