@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="chinese (simplified)">
+<head>
+      <title>SIGNSMILE DRONE</title>
+    <meta charset="utf-8" />
+
+
+    <meta name="tags" content="Drone" />
+
+    <link rel="stylesheet" href="/theme/css/main.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--[if lte IE 8]><script src="/theme/js/ie/html5shiv.js"></script><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="/theme/css/ie8.css" /><![endif]-->
+</head>
+
+<body>
+    <!-- <header id="banner" class="body"> -->
+        <!-- <h1><a href="./">SIGNSMILE DRONE <strong>一个程序员，汽车电子从业人员，无人机爱好者所思所想</strong></a></h1> -->
+    <!--</header>-- /#banner -->
+    
+    <!-- Sidebar -->
+    <div id="sidebar">
+        <!-- Logo -->
+        <h1 id="logo"><a href="/">SIGNSMILE DRONE</a></h1>
+        <!-- Text -->
+        <section class="box text-style1">
+            <div class="inner">
+                <p>
+                    <strong>生命不息，折腾不止:</strong><br />一个程序员，汽车电子从业人员，无人机爱好者所思所想
+                </p>
+            </div>
+        </section>
+        <!-- Nav -->
+        <nav id="nav">
+            <ul>
+                <li><a href="./archives.html">文章列表</a></li>
+            </ul>
+        </nav>
+        
+        <div>
+            <h3>Categories</h3>
+            <ul>
+                 <li ><a href="./category/blogs.html">Blogs</a></li>
+                 <li class="active"><a href="./category/drone.html">drone</a></li>
+                 <li ><a href="./category/skills.html">skills</a></li>
+            </ul>
+        </div>
+
+        <!-- Search -->
+        <section class="box search">
+            <form method="post" action="#">
+                <input type="text" class="text" name="search" placeholder="Search" />
+            </form>
+        </section>
+
+        <!-- Recent Posts -->
+        <section class="box recent-posts">
+            <header>
+                <h2>Contact Me</h2>
+            </header>
+            <ul>
+                <li><a class="icon fa-github" href="https://github.com/signsmile"> Github</a></li>  
+            </ul>
+        </section>
+
+        <!-- Copyright -->
+        <ul id="copyright">
+            <li>Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.</li>
+        </ul>
+    </div><!-- /#sidebar -->
+    
+<div id="content">
+<div class="inner">
+  <article class="box post post-excerpt">
+                <header> 
+                <h2><a href="./ru-he-xuan-ze-fei-kong.html" rel="bookmark" title="Permalink to 如何选择飞控">如何选择飞控</a></h2> 
+                <p></p>
+                </header>
+                <div class="info">
+                    <span class="date" datetime="2018-11-29T00:00:00+08:00"><span class="month">Nov</span> <span class="day">29</span> <span class="month"> 2018</span></span>
+                    <ul class="stats">
+                                    <li><a href="mailto:?Subject=如何选择飞控&Body=I%20saw%20this%20and%20thought%20of%20you!%20 ./ru-he-xuan-ze-fei-kong.html" class="icon fa-envelope">&nbsp;</a></li>
+                                    <li><a href="http://reddit.com/submit?url=./ru-he-xuan-ze-fei-kong.html&title=#如何选择飞控"" class="icon fa-reddit">&nbsp;</a></li>
+                                    <li><a href="https://twitter.com/share?url=./ru-he-xuan-ze-fei-kong.html&text=&hashtags=GnotC" class="icon fa-twitter">&nbsp;</a></li>
+                                    <li><a href="https://www.facebook.com/sharer.php?u=./ru-he-xuan-ze-fei-kong.html" class="icon fa-facebook">&nbsp;</a></li>
+                                </ul>
+                </div><!-- /.post-info -->
+                <div class="entry-content"> &nbsp; </div><!-- /.entry-content -->
+        </article>
+    <div class="highlight"><pre><span></span>四轴之所以能够流行起来，全仰仗于飞控技术的提升
+</pre></div>
+
+
+<hr>
+<p>飞控是飞机的大脑，它基本上就是一块集成了很多传感器的大脑。它接收飞手发送的指令，并通过控制马达让飞机达到预期姿态。</p>
+<p>几乎所有的飞控都内置<a href="({filename}2018-11-23 惯性导航系统.md)">惯性导航系统IMU</a>.一些高级的点飞控还会内置气压传感器和电子指南针。除了内置的传感器以外，飞控还可以外接很多其他外围设备，比如GPS、LED、雷达等。</p>
+<p><img alt="flight controller sizes, MCU and features" src="./drone/images/2018/11/2018-11-29_fc-flight-controller-evolution-size-processor-features-mini-quad-racing-drone-1024x811.jpg"></p>
+<h2>飞控固件</h2>
+<p>固件就是在硬件上跑的飞控软件，一般情况的不同的硬件对应有不同的固件，但是有些流行的固件也可以同时兼容好多种硬件。比较流行的固件有Betaflight、PX4、Cleanflight、KISS、Raceflight等。</p>
+<p>由于飞控理论相对来说相对来说还是开放的，很多固件也都是开源的，所以对于本身飞行算法来说其实并没有什么好烂之分。在选择的时候主要考虑固件的成熟度，扩展能力，以及上位机配套软件的便利性。由于每个固件的上位机软件区别还是比较大的，所以有一定的学习成本需要考虑进去。</p>
+<p><img alt="Flight Controller Firmware" src="./drone/images/2018/11/2018-11-29_fc-firmware-list-mini-quad-rc-qaducotper-fpv-racing-drone.jpg"></p>
+<p>如果你不知道怎么选的话这里有个建议就是，单纯飞穿越机选择Betaflight，如果想深入学习飞控算法并在将来尝试进行飞控开发，选择PX4。</p>
+<h2>处理器</h2>
+<p>这里的处理器指的是飞控上面主MCU，飞控的MCU一般会选择stm32系列，所以会有F1, F3, F4 and F7等。目前来说F1的性能已经不太够用了，现在主流的是F3和F4的MCU，当然高端点的飞控就直接上F7了，尤其是PX4的高级飞控。</p>
+<table>
+<thead>
+<tr>
+<th><strong>F1</strong></th>
+<th><strong>F3</strong></th>
+<th><strong>F4</strong></th>
+<th><strong>F7</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>72MHz</td>
+<td>72MHz</td>
+<td>168MHz</td>
+<td>216MHz</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="FC Processors: from left to right: STM32 F1, F3, F4" src="./drone/images/2018/11/2018-11-29_flight-controller-fc-proccessor-stm32-f1-f3-f4-f7-cpu-chip-1024x322.jpg"></p>
+<h2>接口</h2>
+<p>这里说的接口主要说的是可以外接外围设备的接口，一般有UART、IIC、SPI等。接口的数量受所选的MCU所限制，最终由硬件电路决定留出多少接口，有些飞控为了减少板子尺寸并没有把所有可用的接口给预留出来。下表是每种MCU可以支持的串口数量。</p>
+<table>
+<thead>
+<tr>
+<th><strong>F1</strong></th>
+<th><strong>F3</strong></th>
+<th><strong>F4</strong></th>
+<th><strong>F7</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2 UART’s</td>
+<td>3-5 UART’s</td>
+<td>3-6 UART’s</td>
+<td>7+ UART’s</td>
+</tr>
+</tbody>
+</table>
+<p>接口数量决定了可以外接多少个外围设备，可以根据实际情况进行选择。</p>
+<p>另外，SPI能够达到的速度比IIC好高，IIC最大只能达到4KHz。而且SPI是全双工的，所以在SPI和</p>
+<h2><a href="({filename}2018-11-23 惯性导航系统.md)">惯性导航</a>芯片</h2>
+<p>典型的惯性导航芯片可参考下表</p>
+<table>
+<thead>
+<tr>
+<th>IMU</th>
+<th>支持的通讯协议</th>
+<th>最大的采样频率</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MPU6000</td>
+<td>SPI, i2c</td>
+<td>8K</td>
+</tr>
+<tr>
+<td>MPU6050</td>
+<td>i2c</td>
+<td>4K</td>
+</tr>
+<tr>
+<td>MPU6500</td>
+<td>SPI, i2c</td>
+<td>32K</td>
+</tr>
+<tr>
+<td>MPU9150*</td>
+<td>i2c</td>
+<td>4K</td>
+</tr>
+<tr>
+<td>MPU9250*</td>
+<td>SPI, i2c</td>
+<td>32K</td>
+</tr>
+<tr>
+<td>ICM20602</td>
+<td>SPI, i2c</td>
+<td>32K</td>
+</tr>
+<tr>
+<td>ICM20608</td>
+<td>SPI, i2c</td>
+<td>32K</td>
+</tr>
+<tr>
+<td>ICM20689</td>
+<td>SPI, i2c</td>
+<td>32K</td>
+</tr>
+</tbody>
+</table>
+<p>*其中MPU9150 相当于MPU6050加AK8975指南针，而MPU9250相当于MPU6500加AK8975。</p>
+<p>目前来说，使用最广泛的是MPU6000，虽然说它的采样频率只有8kHz，但是它的抗噪鲁棒性很好，一般不推荐使用MPU6500和MPU9250，它们虽然采样频率很快但是采样出来的数据噪声也很高。</p>
+<p>采样频率本身是个双刃剑，如果在干净的电源下面，采样频率越高，数据越平滑。但是如果是带有电调和马达干扰的电源下面，采样频率过高并不能带来好处，数据可能比低采样频率采出来的数据更糟糕。</p>
+<p>有些飞控会单独把惯性导航模块外置，然后垫个海绵垫进行缓冲。如果没有外置的话，最好在飞控安装的时候将整个飞控安装在海绵垫上面。</p>
+<p><img alt="holybro-kakute-f4-AIO-flight-controller-FC" src="./drone/images/2018/11/2018-11-29_holybro-kakute-f4-AIO-flight-controller-FC-1-1024x768.jpg"></p>
+<h2>功能模块</h2>
+<p>飞行控制算法是飞控的基本功能，但是还有很多其他的功能也很值得考虑。</p>
+<h3>OSD</h3>
+<p>OSD能将飞行信息显示在FPV屏幕上，比如电池电压，飞行时间。摄像头将图像数据传入飞控，飞控会将飞行信息跟图像数据融合并一并发给图传，图传可以将带有OSD的信息发回FPV显示器显示。</p>
+<p>有些还可以支持通过OSD调整参数。</p>
+<h3>电流计</h3>
+<p>飞控能够通过电流计能够计算出当前剩余的电量，这比单单测量电池电压要好的多。它能更准确的让你留出降落时间。</p>
+<h3>黑盒子</h3>
+<p>黑盒子听起来高达上，其实这里只是一个SD卡，飞控可以把飞行数据写到SD卡上方便后面的分析。这个对于调节PID来说是特别有用的。</p>
+<h2>安装尺寸</h2>
+<p>安装尺寸在写机架的时候也有聊到过，主要是为了保证飞控能够准确的安装在飞机上。</p>
+<p>通用的飞控尺寸有 30.5×30.5mm, 20x20mm和16x16mm等. 5寸浆或者更大的机架一般使用30.5×30.5mm的飞控，更小点的使用20x20mm的飞控，而16x16mm也在100mm以下的机架上流行起来了。</p>
+<p><img alt="flight-controller-mounting-pattern-holes-fc-racing-drone-mini-quad" src="./drone/images/2018/11/2018-11-29_flight-controller-mounting-pattern-holes-fc-racing-drone-mini-quad-1024x768.jpg"></p>
+    <!-- Comments -->
+    	<style>
+#pcs-comment-form input,
+#pcs-comment-form textarea {
+	width: 100%;
+}
+#pcs-comment-form-display-replyto {
+	border: solid 1px black;
+	padding: 2px;
+}
+#pcs-comment-form-display-replyto p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+#pcs-comments ul {
+	list-style: none;
+}
+#pcs-comments .comment-left {
+	display: table-cell;
+	padding-right: 10px;
+}
+#pcs-comments .comment-body {
+	display: table-cell;
+	vertical-align: top;
+	width: 100%;
+}
+</style>
+
+	<section id="pcs-comments">
+	<header>
+		<h2>Comments</h2>
+		<hr/>
+	</header>
+		<p>There are no comments yet.</p>
+	<section>
+	<form id="pcs-comment-form" action="#">
+		<legend>Add a Comment</legend>
+		<input type="hidden" id="pcs-comment-form-input-replyto">
+		<fieldset>
+			<label for="pcs-comment-form-input-name">Name</label>
+			<input  id="pcs-comment-form-input-name" type="text" placeholder="Enter your name or nickname" />
+		</fieldset>
+		<fieldset>
+			<label for="pcs-comment-form-input-website">Website</label>
+			<input  id="pcs-comment-form-input-website" type="text" placeholder="Enter your website (optional)" />
+		</fieldset>
+		<fieldset>
+			<label   for="pcs-comment-form-input-textarea">Your Comment</label>
+			<textarea id="pcs-comment-form-input-textarea" rows="5" style="resize:vertical;" placeholder="Your comment"></textarea>
+			<p>You can use the <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a> syntax to format your comment.</p>
+			<div style="display: none; " id="pcs-comment-form-display-replyto"></div>
+		</fieldset>
+
+		<button type="submit"
+				id="pcs-comment-form-button-submit"
+				>Post via email</button>
+
+			<a href="./feeds\comment.ru-he-xuan-ze-fei-kong.atom.xml">
+				Comment Atom Feed
+			</a>
+	</form>
+</section>
+
+</section>
+
+			<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="./theme/js/comments.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			CommentSystem.email_user   = "signsmile";
+			CommentSystem.email_domain = "outlook.com";
+			CommentSystem.display_replyto_html = function(comment_content, article_slug, author) { 
+				return ''
+					+ '<button style="float:right;" onclick="CommentSystem.cancelReply(); return false;" title="Cancel the reply">'
+					+ 	'×'
+					+ '</button>'
+					+ '<p>This comment will be posted as a reply to \'<a title="'+comment_content+'" href="#comment-'+article_slug+'">'+author+'</a>\'</p>';
+			};
+
+			$('#pcs-comment-form').on("submit",
+				function( event )
+				{
+					event.preventDefault();
+					$(location).attr('href', CommentSystem.getMailtoLink("ru-he-xuan-ze-fei-kong"));
+				}
+			);
+		});
+	</script>
+
+
+  </div><!-- /.entry-content -->
+
+
+  <!-- Pagination -->
+  <div class="pagination">
+      <a class="button previous" href="./ru-he-xuan-ze-ji-jia.html">
+        如何选择机架
+      </a>
+  </div>
+</div>
+</div>
+<!-- /#contentinfo -->
+</body>
+</html>
