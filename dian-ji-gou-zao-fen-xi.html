@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="chinese (simplified)">
+<head>
+      <title>SIGNSMILE DRONE</title>
+    <meta charset="utf-8" />
+
+
+    <meta name="tags" content="Drone" />
+
+    <link rel="stylesheet" href="/theme/css/main.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--[if lte IE 8]><script src="/theme/js/ie/html5shiv.js"></script><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="/theme/css/ie8.css" /><![endif]-->
+</head>
+
+<body>
+    <!-- <header id="banner" class="body"> -->
+        <!-- <h1><a href="./">SIGNSMILE DRONE <strong>一个程序员，汽车电子从业人员，无人机爱好者所思所想</strong></a></h1> -->
+    <!--</header>-- /#banner -->
+    
+    <!-- Sidebar -->
+    <div id="sidebar">
+        <!-- Logo -->
+        <h1 id="logo"><a href="/">SIGNSMILE DRONE</a></h1>
+        <!-- Text -->
+        <section class="box text-style1">
+            <div class="inner">
+                <p>
+                    <strong>生命不息，折腾不止:</strong><br />一个程序员，汽车电子从业人员，无人机爱好者所思所想
+                </p>
+            </div>
+        </section>
+        <!-- Nav -->
+        <nav id="nav">
+            <ul>
+                <li><a href="./archives.html">文章列表</a></li>
+            </ul>
+        </nav>
+        
+        <div>
+            <h3>Categories</h3>
+            <ul>
+                 <li ><a href="./category/blogs.html">Blogs</a></li>
+                 <li class="active"><a href="./category/drone.html">drone</a></li>
+                 <li ><a href="./category/skills.html">skills</a></li>
+            </ul>
+        </div>
+
+        <!-- Search -->
+        <section class="box search">
+            <form method="post" action="#">
+                <input type="text" class="text" name="search" placeholder="Search" />
+            </form>
+        </section>
+
+        <!-- Recent Posts -->
+        <section class="box recent-posts">
+            <header>
+                <h2>Contact Me</h2>
+            </header>
+            <ul>
+                <li><a class="icon fa-github" href="https://github.com/signsmile"> Github</a></li>  
+            </ul>
+        </section>
+
+        <!-- Copyright -->
+        <ul id="copyright">
+            <li>Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.</li>
+        </ul>
+    </div><!-- /#sidebar -->
+    
+<div id="content">
+<div class="inner">
+  <article class="box post post-excerpt">
+                <header> 
+                <h2><a href="./dian-ji-gou-zao-fen-xi.html" rel="bookmark" title="Permalink to 电机构造分析">电机构造分析</a></h2> 
+                <p></p>
+                </header>
+                <div class="info">
+                    <span class="date" datetime="2018-12-21T00:00:00+08:00"><span class="month">Dec</span> <span class="day">21</span> <span class="month"> 2018</span></span>
+                    <ul class="stats">
+                                    <li><a href="mailto:?Subject=电机构造分析&Body=I%20saw%20this%20and%20thought%20of%20you!%20 ./dian-ji-gou-zao-fen-xi.html" class="icon fa-envelope">&nbsp;</a></li>
+                                    <li><a href="http://reddit.com/submit?url=./dian-ji-gou-zao-fen-xi.html&title=#电机构造分析"" class="icon fa-reddit">&nbsp;</a></li>
+                                    <li><a href="https://twitter.com/share?url=./dian-ji-gou-zao-fen-xi.html&text=&hashtags=GnotC" class="icon fa-twitter">&nbsp;</a></li>
+                                    <li><a href="https://www.facebook.com/sharer.php?u=./dian-ji-gou-zao-fen-xi.html" class="icon fa-facebook">&nbsp;</a></li>
+                                </ul>
+                </div><!-- /.post-info -->
+                <div class="entry-content"> &nbsp; </div><!-- /.entry-content -->
+        </article>
+    <div class="highlight"><pre><span></span>厂家在做电机的时候还是有一些发挥的空间的。
+</pre></div>
+
+
+<hr>
+<p>之前有介绍过怎么选择电机-&gt;<a href="./ru-he-xuan-ze-dian-ji.html">如何选择电机</a>, 然后也聊了下电机的性能问题-&gt;<a href="./dian-ji-te-xing-fen-xi.html">电机性能分析</a>。这里就聊聊电机内部构造的一些细节。</p>
+<h2>电机轴</h2>
+<p>电机轴的结构其实是一直在改变的，像最早的实心铝棒，到后来的空芯钛轴。后者重量跟前者相似，但是更硬，也更难以弯曲。然而在钛轴中间钻孔会大大增加制造成本。最近他们提出了一种新的电机轴的设计，在空心轴中插入一根钢棒以增加额外的强度。</p>
+<p><img alt="电机轴" src="./drone/images/2018/12/21_RCINPower-Mark1-2306-Motor-prop-shaft-1024x768.jpg"></p>
+<h2>定子叠片厚度</h2>
+<p>定子叠片，是指线圈中间的铁块，它是由一片一片铁片叠起来的。叠片越薄，同样高度的定子能放的叠片就越多。</p>
+<p>简单来说，这种叠片越薄越好。这有助于减少一种叫做涡流的现象，这种现象在不断变化的磁环境中产生热量，而导致电流浪费。</p>
+<p><img alt="叠片" src="./drone/images/2018/12/21_quadcopter-brushless-motor-stator-lamination-layer.jpg"></p>
+<h2>定子转子间隙</h2>
+<p>磁铁周围的磁场强度是非线性的，距离越远衰减越大。定子和转子之间的间隙越小，不仅能保证电机更有效，而且还能提升扭矩和响应时间。反之，间隙越大则会增加运转电流而降低电能转化效率。</p>
+<h2>电机磁铁型号</h2>
+<p>无刷电机所用的电磁铁是由它们的磁场强度来分类的，有N52 N54等这种型号。这个数字越大，就说明磁场强度越强。理论上，磁场越强，电磁转换效率越高，产生的扭矩就越大，响应时间自然也就更好了。</p>
+<p>当你用手转动马达时，会有明显的一档一档的卡顿感，这种现象其实并不是什么坏事，因为这就是磁场强弱的直接反馈。在磁铁上能感觉到很强的吸力，而磁铁间隙上吸力就会弱一些，如果它之间的差距越小，就说明电机转起来会越平滑。</p>
+<h2>电机磁铁形状</h2>
+<p>有些磁铁是带有弧度的，这种弧形磁铁带来一个好处就是定子和转子之间的缝隙会降低。另外，最主要的能让磁场最强点汇聚在定子上而不是磁铁表面，这样实际上磁铁和定子的磁场被拉的更近了。</p>
+<p>除了形状，一些制造商测试不同磁体厚度的电机时，往往发现磁体稍薄(因此磁场较弱)实际上可以提供更好的结果，因为定子的重量轻了。</p>
+<h2>底部是否封闭</h2>
+<p>电机底部有封闭式和开放式之分，两种设计都各有利弊。
+封闭式底部设计意味着更坚实的基座，然而开放式底部由于少了很多材料，电机的总重量就更轻了。封闭式的电机不太容易让泥土等东西进去，但是一旦进去了也就不好清理了，而开放式的电机就很容易清理。</p>
+<p><img alt="封闭" src="./drone/images/2018/12/21_mini-quad-motor-closed-bottom-skirt-motor-base-design-1024x768.jpg"></p>
+<p><img alt="开放" src="./drone/images/2018/12/21_mini-quad-motor-naked-bottom-open-motor-base-design-1024x768.jpg"></p>
+<h2>转子磁通环设计</h2>
+<p>转子磁通环是环内装有磁铁的圆形钟状结构。而磁通环是钢做的，因为它必须对磁场线作出感应。最新的磁通环设计是自定义形状，而不是通常的圆形，这可以帮助更多的磁场线回到电机和提高扭矩。</p>
+<h2>快拆轴设计</h2>
+<p>快拆轴在穿越机上出现不多，但是在航拍机上出现的会比较多，主要是为了再不拧螺丝的情况下将浆拆下来，以方便收纳。</p>
+<p><img alt="快拆1" src="./drone/images/2018/12/21_popo-pop-on-pop-off-quick-swap-system-motor-1024x768.jpg"></p>
+<p>![快拆2]({filename}images/2018/12/21_quick release propeller.jpg)</p>
+<p>参考原文： https://oscarliang.com/quadcopter-motor-propeller/</p>
+<p><img alt="logo" src="./drone/images/logo/logo.jpg"></p>
+    <!-- Comments -->
+    	<style>
+#pcs-comment-form input,
+#pcs-comment-form textarea {
+	width: 100%;
+}
+#pcs-comment-form-display-replyto {
+	border: solid 1px black;
+	padding: 2px;
+}
+#pcs-comment-form-display-replyto p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+#pcs-comments ul {
+	list-style: none;
+}
+#pcs-comments .comment-left {
+	display: table-cell;
+	padding-right: 10px;
+}
+#pcs-comments .comment-body {
+	display: table-cell;
+	vertical-align: top;
+	width: 100%;
+}
+</style>
+
+	<section id="pcs-comments">
+	<header>
+		<h2>Comments</h2>
+		<hr/>
+	</header>
+		<p>There are no comments yet.</p>
+	<section>
+	<form id="pcs-comment-form" action="#">
+		<legend>Add a Comment</legend>
+		<input type="hidden" id="pcs-comment-form-input-replyto">
+		<fieldset>
+			<label for="pcs-comment-form-input-name">Name</label>
+			<input  id="pcs-comment-form-input-name" type="text" placeholder="Enter your name or nickname" />
+		</fieldset>
+		<fieldset>
+			<label for="pcs-comment-form-input-website">Website</label>
+			<input  id="pcs-comment-form-input-website" type="text" placeholder="Enter your website (optional)" />
+		</fieldset>
+		<fieldset>
+			<label   for="pcs-comment-form-input-textarea">Your Comment</label>
+			<textarea id="pcs-comment-form-input-textarea" rows="5" style="resize:vertical;" placeholder="Your comment"></textarea>
+			<p>You can use the <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a> syntax to format your comment.</p>
+			<div style="display: none; " id="pcs-comment-form-display-replyto"></div>
+		</fieldset>
+
+		<button type="submit"
+				id="pcs-comment-form-button-submit"
+				>Post via email</button>
+
+			<a href="./feeds\comment.dian-ji-gou-zao-fen-xi.atom.xml">
+				Comment Atom Feed
+			</a>
+	</form>
+</section>
+
+</section>
+
+			<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="./theme/js/comments.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			CommentSystem.email_user   = "signsmile";
+			CommentSystem.email_domain = "outlook.com";
+			CommentSystem.display_replyto_html = function(comment_content, article_slug, author) { 
+				return ''
+					+ '<button style="float:right;" onclick="CommentSystem.cancelReply(); return false;" title="Cancel the reply">'
+					+ 	'×'
+					+ '</button>'
+					+ '<p>This comment will be posted as a reply to \'<a title="'+comment_content+'" href="#comment-'+article_slug+'">'+author+'</a>\'</p>';
+			};
+
+			$('#pcs-comment-form').on("submit",
+				function( event )
+				{
+					event.preventDefault();
+					$(location).attr('href', CommentSystem.getMailtoLink("dian-ji-gou-zao-fen-xi"));
+				}
+			);
+		});
+	</script>
+
+
+  </div><!-- /.entry-content -->
+
+
+  <!-- Pagination -->
+  <div class="pagination">
+      <a class="button previous" href="./dian-ji-te-xing-fen-xi.html">
+        电机特性分析
+      </a>
+  </div>
+</div>
+</div>
+<!-- /#contentinfo -->
+</body>
+</html>
